@@ -8,24 +8,6 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '30 12 * * *'
-  workflow_dispatch:
-    inputs:
-      dockerhub-repo:
-        description: 'DockerHub repository'
-        required: true
-        default: library/node
-      dest-registry:
-        description: 'Destination registry (eg. ghcr.io)'
-        required: true
-        default: ghcr.io
-      dest-repo:
-        description: 'Destination repository (eg. username/repo)'
-        required: true
-        default: arvatoaws-labs/node
-      dry-run:
-        description: 'Dry run'
-        required: false
-        default: 'false'
 
 jobs:
   mirror:
