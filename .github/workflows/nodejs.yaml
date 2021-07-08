@@ -7,7 +7,7 @@ on:
       - master
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '*/2 * * * *'
+    - cron:  '30 12 * * *'
 
 jobs:
   build:
@@ -37,8 +37,8 @@ jobs:
       - name: Mirror
         uses: crazy-max/ghaction-dockerhub-mirror@v1
         with:
-          # dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
-          # dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
+          dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
           dockerhub-repo: node
           dest-registry:  ghcr.io
           dest-repo: arvatoaws-labs/node
