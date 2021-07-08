@@ -63,7 +63,7 @@ jobs:
         with:
           dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
           dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
-          dockerhub-repo: ${{ github.event.inputs.dockerhub-repo }}
-          dest-registry: ${{ github.event.inputs.dest-registry }}
-          dest-repo: ${{ github.event.inputs.dest-repo }}
-          dry-run: ${{ github.event.inputs.dry-run }}
+          dockerhub-repo: library/node
+          dest-registry:  ghcr.io
+          dest-repo: arvatoaws-labs/node
+          dry-run: 'false'
