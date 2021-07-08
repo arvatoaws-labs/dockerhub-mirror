@@ -1,13 +1,24 @@
 name: nodejs
 
 on:
-  push:
-    branches:
-      - main
-      - master
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '30 12 * * *'
+  workflow_dispatch:
+    inputs:
+      dockerhub-repo:
+        description: 'DockerHub repository'
+        required: true
+        default: node
+      dest-registry:
+        description: 'Destination registry (eg. ghcr.io)'
+        required: true
+        default: ghcr.io
+      dest-repo:
+        description: 'Destination repository (eg. username/repo)'
+        required: true
+        default: arvatoaws-labs/node
+      dry-run:
+        description: 'Dry run'
+        required: false
+        default: 'false'
 
 jobs:
   mirror:
@@ -45,7 +56,7 @@ jobs:
         with:
           dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
           dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
-          dockerhub-repo: node
-          dest-registry:  ghcr.io
-          dest-repo: arvatoaws-labs/node
-          dry-run: 'false'
+          dockerhub-repo: ${{ github.event.inputs.dockerhub-repo }}
+          dest-registry: ${{ github.event.inputs.dest-registry }}
+          dest-repo: ${{ github.event.inputs.dest-repo }}
+          dry-run: ${{ github.event.inputs.dry-run }}
