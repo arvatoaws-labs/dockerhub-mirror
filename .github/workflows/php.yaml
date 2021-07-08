@@ -1,4 +1,4 @@
-name: nodejs
+name: php
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
         with:
           # dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
           # dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
-          dockerhub-repo: node
+          dockerhub-repo: php
           dest-registry:  ghcr.io
-          dest-repo: arvatoaws-labs/node
+          dest-repo: arvatoaws-labs/php
           dry-run: 'false'

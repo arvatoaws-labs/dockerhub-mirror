@@ -1,4 +1,4 @@
-name: nodejs
+name: traefik
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
         with:
           # dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
           # dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
-          dockerhub-repo: node
+          dockerhub-repo: traefik
           dest-registry:  ghcr.io
-          dest-repo: arvatoaws-labs/node
+          dest-repo: arvatoaws-labs/traefik
           dry-run: 'false'
