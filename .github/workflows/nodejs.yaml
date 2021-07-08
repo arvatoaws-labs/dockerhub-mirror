@@ -1,12 +1,19 @@
 name: nodejs
 
 on:
+  push:
+    branches:
+      - main
+      - master
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 12 * * *'
   workflow_dispatch:
     inputs:
       dockerhub-repo:
         description: 'DockerHub repository'
         required: true
-        default: node
+        default: library/node
       dest-registry:
         description: 'Destination registry (eg. ghcr.io)'
         required: true
