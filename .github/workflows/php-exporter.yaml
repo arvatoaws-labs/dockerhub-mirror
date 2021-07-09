@@ -1,4 +1,4 @@
-name: php
+name: php-exporter
 
 on:
   push:
