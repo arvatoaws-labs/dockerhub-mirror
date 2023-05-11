@@ -45,7 +45,7 @@ jobs:
       with:
         dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
         dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
-        dockerhub-repo: mikefarah/golang
+        dockerhub-repo: library/golang
         dest-registry: ghcr.io
         dest-repo: arvatoaws-labs/golang
         dry-run: 'false'
