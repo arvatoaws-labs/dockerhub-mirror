@@ -50,10 +50,10 @@ runs:
           exit 1
         fi
 
-        MIN_DATE=$(date -u -d "1 week ago" +"%Y-%m-%dT%H:%M:%S")
+        MIN_DATE=$(date -u -d "3 week ago" +"%Y-%m-%dT%H:%M:%S")
         echo $MIN_DATE
 
-        TAG_LIST=$(curl -s -H "Authorization: Bearer ${TOKEN}" "https://hub.docker.com/v2/repositories/${DOCKERHUB_REPO}/tags/" | jq -rc ".results | .[] |  select(.last_updated >= \"$MIN_DATE\") | @base64")
+        TAG_LIST=$(curl -s -H "Authorization: Bearer ${TOKEN}" "https://hub.docker.com/v2/repositories/${DOCKERHUB_REPO}/tags/?page_size=10000" | jq -rc ".results | .[] |  select(.last_updated >= \"$MIN_DATE\") | @base64")
         for TAG in $TAG_LIST; do
           _jq() {
             echo "${TAG}" | base64 --decode | jq -r ${1}
