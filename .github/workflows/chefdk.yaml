@@ -2,10 +2,7 @@ name: chefdk
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  schedule:
-  # * is a special character in YAML so you have to quote this string
-  #- cron: '50 10 * * *'
-
+  
 jobs:
   mirror:
     runs-on: ubuntu-latest
