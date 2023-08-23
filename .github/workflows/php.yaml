@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   schedule:
   # * is a special character in YAML so you have to quote this string
-  - cron: '50 13 * * 7'
+  - cron: '50 13 * * 0'
 
 jobs:
   mirror:
