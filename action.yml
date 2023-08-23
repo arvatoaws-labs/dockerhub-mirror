@@ -26,6 +26,10 @@ inputs:
     description: 'Dry run'
     required: false
     default: 'false'
+  min-date:
+    description: 'Limit docker images age'
+    required: false
+    default: '10 days ago'
 
 runs:
   using: 'composite'
@@ -50,7 +54,7 @@ runs:
           exit 1
         fi
 
-        MIN_DATE=$(date -u -d "1 week ago" +"%Y-%m-%dT%H:%M:%S")
+        MIN_DATE=$(date -u -d "${{ inputs.min-date }}" +"%Y-%m-%dT%H:%M:%S")
         echo "selecting images newer than $MIN_DATE"
 
         TAG_LIST=$(curl -s -H "Authorization: Bearer ${TOKEN}" "https://hub.docker.com/v2/repositories/${DOCKERHUB_REPO}/tags/?page_size=10000" | jq -rc ".results | .[] |  select(.last_updated >= \"$MIN_DATE\") | @base64")
