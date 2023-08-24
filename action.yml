@@ -47,6 +47,8 @@ runs:
     -
       run: |
         set -e
+        set -x
+
         SRC_USER=${{ inputs.src-username }}
         SRC_PASS=${{ inputs.src-password }}
         SRC_REGISTRY=${{ inputs.src-registry }}
@@ -57,13 +59,8 @@ runs:
         DST_REGISTRY=${{ inputs.dst-registry }}
         CONFIG=${{ inputs.config }}
 
-        DRYRUN_FLAG="--dry-run"
-        if [ "${{ inputs.dry-run }}" = "false" ]; then
-          DRYRUN_FLAG=""
-        fi
-
-        wget https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
+        wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
         chmod 755 regsync-linux-amd64
 
-        ./regsync-linux-amd64 -c $CONFIG once
+        ./regsync-linux-amd64 -c "$CONFIG" once
       shell: bash
