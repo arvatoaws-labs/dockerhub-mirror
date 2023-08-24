@@ -7,29 +7,39 @@ branding:
   icon: 'copy'
 
 inputs:
-  dockerhub-username:
-    description: 'DockerHub username'
+
+  src-username:
+    description: 'Source username'
     required: true
-  dockerhub-password:
-    description: 'DockerHub password or persona laccess token'
+  src-password:
+    description: 'Source password'
     required: true
-  dockerhub-repo:
-    description: 'DockerHub repo to mirror'
+  src-registry:
+    description: 'Source registry (eg. docker.io)'
     required: true
-  dest-registry:
+    default: docker.io
+  src-repo:
+    description: 'Source repo (eg. library/busybox)'
+    required: true
+
+  dst-username:
+    description: 'Destination username'
+    required: true
+  dst-password:
+    description: 'Destination password'
+    required: true
+  dst-registry:
     description: 'Destination registry (eg. ghcr.io)'
     required: true
-  dest-repo:
-    description: 'Destination repo (eg. username/repo)'
+    default: ghcr.io
+  dst-repo:
+    description: 'Destination repo (eg. myrepo/busybox)'
     required: true
-  dry-run:
-    description: 'Dry run'
-    required: false
-    default: 'false'
-  min-date:
-    description: 'Limit docker images age'
-    required: false
-    default: '10 days ago'
+
+  config:
+    description: 'configfile to use'
+    required: true
+    default: config/generic.yaml
 
 runs:
   using: 'composite'
@@ -37,39 +47,22 @@ runs:
     -
       run: |
         set -e
-        DOCKERHUB_USERNAME=${{ inputs.dockerhub-username }}
-        DOCKERHUB_PASSWORD=${{ inputs.dockerhub-password }}
-        DOCKERHUB_REPO=${{ inputs.dockerhub-repo }}
-        DOCKER_DEST_REGISTRY=${{ inputs.dest-registry }}
-        DOCKER_DEST_REPO=${{ inputs.dest-repo }}
+        SRC_USER=${{ inputs.src-username }}
+        SRC_PASS=${{ inputs.src-password }}
+        SRC_REGISTRY=${{ inputs.src-registry }}
+        SRC_REPO=${{ inputs.src-repo }}
+        DST_USER=${{ inputs.dst-username }}
+        DST_PASS=${{ inputs.dst-password }}
+        DST_REPO=${{ inputs.dst-repo }}
+        DST_REGISTRY=${{ inputs.dst-registry }}
 
         DRYRUN_FLAG="--dry-run"
         if [ "${{ inputs.dry-run }}" = "false" ]; then
           DRYRUN_FLAG=""
         fi
 
-        TOKEN=$(curl -s -H "Content-Type: application/json" -X POST -d '{"username": "'${DOCKERHUB_USERNAME}'", "password": "'${DOCKERHUB_PASSWORD}'"}' https://hub.docker.com/v2/users/login/ | jq -r .token)
-        if [ -z "${TOKEN}" -o "${TOKEN}" == "null" ]; then
-          echo >&2 "error: cannot retrieve token"
-          exit 1
-        fi
+        wget https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
+        chmod 755 regsync-linux-amd64
 
-        MIN_DATE=$(date -u -d "${{ inputs.min-date }}" +"%Y-%m-%dT%H:%M:%S")
-        echo "selecting images newer than $MIN_DATE"
-
-        TAG_LIST=$(curl -s -H "Authorization: Bearer ${TOKEN}" "https://hub.docker.com/v2/repositories/${DOCKERHUB_REPO}/tags/?page_size=10000" | jq -rc ".results | .[] |  select(.last_updated >= \"$MIN_DATE\") | @base64")
-        for TAG in $TAG_LIST; do
-          _jq() {
-            echo "${TAG}" | base64 --decode | jq -r ${1}
-          }
-          TAG_NAME=$(_jq '.name')
-          echo "::group::Copying ${DOCKERHUB_REPO}:${TAG_NAME} to ${DOCKER_DEST_REGISTRY}/${DOCKER_DEST_REPO}:${TAG_NAME}"
-          set -x
-          docker buildx imagetools create ${DRYRUN_FLAG} --tag "${DOCKER_DEST_REGISTRY}/${DOCKER_DEST_REPO}:${TAG_NAME}" "${DOCKERHUB_REPO}:${TAG_NAME}"
-          set +x
-          if [ "${{ inputs.dry-run }}" = "false" ]; then
-            docker buildx imagetools inspect "${DOCKER_DEST_REGISTRY}/${DOCKER_DEST_REPO}:${TAG_NAME}"
-          fi
-          echo "::endgroup"
-        done
+        ./regsync-linux-amd64 -c config.yaml once
       shell: bash
