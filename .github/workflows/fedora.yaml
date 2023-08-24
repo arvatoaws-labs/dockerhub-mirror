@@ -21,7 +21,7 @@ jobs:
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
         dst-username: ${{ secrets.CR_USERNAME }}
         dst-password: ${{ secrets.CR_PAT }}
-        config: config/generic.yaml
+        config: config/fedora.yaml
 
         src-repo: library/fedora
         dst-repo: arvatoaws-labs/fedora

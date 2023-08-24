@@ -16,3 +16,8 @@ sync:
 - source: "REPLACE_ME_SOURCE_REGISTRY/REPLACE_ME_SOURCE_REPO"
   target: "REPLACE_ME_TARGET_REGISTRY/REPLACE_ME_TARGET_REPO"
   type: repository
+  tags:
+    allow:
+    - "latest"
+    - "stable"
+    - "current"

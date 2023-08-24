@@ -21,7 +21,7 @@ jobs:
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
         dst-username: ${{ secrets.CR_USERNAME }}
         dst-password: ${{ secrets.CR_PAT }}
-        config: config/generic.yaml
+        config: config/metrics-server.yaml
 
         src-repo: bitnami/metrics-server
         dst-repo: arvatoaws-labs/metrics-server

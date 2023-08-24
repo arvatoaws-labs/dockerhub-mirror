@@ -59,15 +59,21 @@ runs:
         DST_REGISTRY=${{ inputs.dst-registry }}
         CONFIG=${{ inputs.config }}
 
-        wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
-        chmod 755 regsync-linux-amd64
+        CURRENT_YEAR=$(date +'%Y')
+        LAST_YEAR=$((CURRENT_YEAR - 1))
 
         sed -i "s@REPLACE_ME_SOURCE_REGISTRY@$SRC_REGISTRY@g" $CONFIG
         sed -i "s@REPLACE_ME_SOURCE_REPO@$SRC_REPO@g" $CONFIG
         sed -i "s@REPLACE_ME_TARGET_REGISTRY@$DST_REGISTRY@g" $CONFIG
         sed -i "s@REPLACE_ME_TARGET_REPO@$DST_REPO@g" $CONFIG
 
+        sed -i "s@REPLACE_ME_CURRENT_YEAR@$CURRENT_YEAR@g" $CONFIG
+        sed -i "s@REPLACE_ME_LAST_YEAR@$LAST_YEAR@g" $CONFIG
+
         cat $CONFIG
+
+        wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
+        chmod 755 regsync-linux-amd64
 
         ./regsync-linux-amd64 -c "$CONFIG" once
       shell: bash

@@ -19,7 +19,8 @@ sync:
   tags:
     allow:
     - "latest"
-    - "10"
-    - "10.\\d+"
-    - "9"
-    - "9.\\d+"
+    - "lts"
+    - "alpine.*"
+    - "22-alpine.*"
+    - "20-alpine.*"
+    - "18-alpine.*"

@@ -19,7 +19,8 @@ sync:
   tags:
     allow:
     - "latest"
-    - "10"
-    - "10.\\d+"
-    - "9"
-    - "9.\\d+"
+    - "mainline.*"
+    - "stable.*"
+    - "1.\\d+.*"
+    deny:
+    - ".*perl.*"

@@ -21,7 +21,7 @@ jobs:
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
         dst-username: ${{ secrets.CR_USERNAME }}
         dst-password: ${{ secrets.CR_PAT }}
-        config: config/generic.yaml
+        config: config/grafana.yaml
 
         src-repo: grafana/grafana
         dst-repo: arvatoaws-labs/grafana
