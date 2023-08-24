@@ -1,11 +1,11 @@
 version: 1
 creds:
-  - registry: "{{env \"SRC_REGISTRY\"}}"
-    user: "{{env \"SRC_USER\"}}"
-    pass: "{{env \"SRC_PASS\"}}"
-  - registry: "{{env \"DST_REGISTRY\"}}"
-    user: "{{env \"DST_USER\"}}"
-    pass: "{{env \"DST_PASS\"}}"
+- registry: "{{env \"SRC_REGISTRY\"}}"
+  user: "{{env \"SRC_USER\"}}"
+  pass: "{{env \"SRC_PASS\"}}"
+- registry: "{{env \"DST_REGISTRY\"}}"
+  user: "{{env \"DST_USER\"}}"
+  pass: "{{env \"DST_PASS\"}}"
 
 defaults:
   ratelimit:
@@ -13,12 +13,12 @@ defaults:
     retry: 15m
   parallel: 2
 sync:
-  - source: "{{env \"SRC_REGISTRY\"}}/{{env \"SRC_REPO\"}}"
-    target: "{{env \"DST_REGISTRY\"}}/{{env \"DST_REPO\"}}"
+  - source: "docker.io/library/almalinux"
+    target: "ghcr.io/arvatoaws-labs/almalinux"
     type: repository
     tags:
-     allow:
-     - "latest"
-     - "8"
-     - "9"
-     - "9.\\d+"
+      allow:
+      - "latest"
+      - "8"
+      - "9"
+      - "9.\\d+"
