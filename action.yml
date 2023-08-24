@@ -55,6 +55,7 @@ runs:
         DST_PASS=${{ inputs.dst-password }}
         DST_REPO=${{ inputs.dst-repo }}
         DST_REGISTRY=${{ inputs.dst-registry }}
+        CONFIG=${{ inputs.config }}
 
         DRYRUN_FLAG="--dry-run"
         if [ "${{ inputs.dry-run }}" = "false" ]; then
@@ -64,5 +65,5 @@ runs:
         wget https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
         chmod 755 regsync-linux-amd64
 
-        ./regsync-linux-amd64 -c config.yaml once
+        ./regsync-linux-amd64 -c $CONFIG once
       shell: bash
