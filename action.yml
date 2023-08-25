@@ -45,7 +45,6 @@ runs:
   using: 'composite'
   steps:
   - run: |
-      echo "::group::Preparing"
       set -e
 
       export SRC_USER=${{ inputs.src-username }}
@@ -65,7 +64,6 @@ runs:
       sed -i "s@REPLACE_ME_LAST_YEAR@$LAST_YEAR@g" $CONFIG
 
       wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64 && chmod 755 regsync-linux-amd64
-      echo "::endgroup"
 
       echo "::group::Config"
       cat $CONFIG
