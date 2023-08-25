@@ -14,6 +14,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Get Current Branch Name
+      id: get_branch
+      run: git rev-parse --abbrev-ref HEAD
+
     - name: Mirror
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
