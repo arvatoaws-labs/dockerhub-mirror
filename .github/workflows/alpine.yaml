@@ -18,12 +18,8 @@ jobs:
       id: get_branch
       run: echo "::set-output name=branch::$(git rev-parse --abbrev-ref HEAD)"
 
-    - name: Set Action's Uses
-      id: set_action_uses
-      run: echo "::set-output name=action_uses::arvatoaws-labs/dockerhub-mirror@${{ steps.get_branch.outputs.branch }}"
-
     - name: Mirror
-      uses: ${{ steps.set_action_uses.outputs.action_uses }}
+      uses: arvatoaws-labs/dockerhub-mirror@${{ steps.get_branch.outputs.branch }}"
       with:
         src-username: ${{ secrets.DOCKERHUB_USERNAME }}
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
