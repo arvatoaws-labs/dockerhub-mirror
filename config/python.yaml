@@ -1,0 +1,25 @@
+version: 1
+creds:
+- registry: "{{env \"SRC_REGISTRY\"}}"
+  user: "{{env \"SRC_USER\"}}"
+  pass: "{{env \"SRC_PASS\"}}"
+- registry: "{{env \"DST_REGISTRY\"}}"
+  user: "{{env \"DST_USER\"}}"
+  pass: "{{env \"DST_PASS\"}}"
+
+defaults:
+  ratelimit:
+    min: 100
+    retry: 15m
+  parallel: 2
+sync:
+- source: "REPLACE_ME_SOURCE_REGISTRY/REPLACE_ME_SOURCE_REPO"
+  target: "REPLACE_ME_TARGET_REGISTRY/REPLACE_ME_TARGET_REPO"
+  type: repository
+  tags:
+    allow:
+    - "latest"
+    - "3.\\d+.*"
+    deny:
+    - ".*windows.*"
+    - ".*rc.*"
