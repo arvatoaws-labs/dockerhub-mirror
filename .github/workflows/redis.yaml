@@ -25,7 +25,7 @@ jobs:
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
         dst-username: ${{ secrets.CR_USERNAME }}
         dst-password: ${{ secrets.CR_PAT }}
-        config: config/generic.yaml
+        config: config/redis.yaml
 
         src-repo: library/redis
         dst-repo: arvatoaws-labs/redis

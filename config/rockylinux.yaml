@@ -19,7 +19,5 @@ sync:
   tags:
     allow:
     - "latest"
-    - "3.\\d+.*"
-    deny:
-    - ".*windows.*"
-    - ".*rc.*"
+    - "\\d+.\\d+.*(minimal)?"
+    - "\\d+.*(minimal)?"

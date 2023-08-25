@@ -18,8 +18,6 @@ sync:
   type: repository
   tags:
     allow:
-    - "latest"
-    - "3.\\d+.*"
-    deny:
-    - ".*windows.*"
-    - ".*rc.*"
+     - "latest"
+     - "\\d+.\\d+"
+     - "\\d+"

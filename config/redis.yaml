@@ -19,7 +19,11 @@ sync:
   tags:
     allow:
     - "latest"
-    - "3.\\d+.*"
+    - "\\d+.\\d+"
+    - "\\d+"
     deny:
+    - ".*32bit.*"
     - ".*windows.*"
-    - ".*rc.*"
+    - ".*-rc.*"
+    - ".*-alpha.*"
+    - ".*-beta.*"
