@@ -46,7 +46,7 @@ runs:
   steps:
   - run: |
       set -e
-      set -x
+      #set -x
 
       export SRC_USER=${{ inputs.src-username }}
       export SRC_PASS=${{ inputs.src-password }}
@@ -61,20 +61,21 @@ runs:
       export CURRENT_YEAR=$(date +'%Y')
       export LAST_YEAR=$((CURRENT_YEAR - 1))
 
-      sed -i "s@REPLACE_ME_SOURCE_REGISTRY@$SRC_REGISTRY@g" $CONFIG
-      sed -i "s@REPLACE_ME_SOURCE_REPO@$SRC_REPO@g" $CONFIG
-      sed -i "s@REPLACE_ME_TARGET_REGISTRY@$DST_REGISTRY@g" $CONFIG
-      sed -i "s@REPLACE_ME_TARGET_REPO@$DST_REPO@g" $CONFIG
-
       sed -i "s@REPLACE_ME_CURRENT_YEAR@$CURRENT_YEAR@g" $CONFIG
       sed -i "s@REPLACE_ME_LAST_YEAR@$LAST_YEAR@g" $CONFIG
 
+      echo "::group::Config"
       cat $CONFIG
+      echo "::endgroup"
 
-      wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
-      chmod 755 regsync-linux-amd64
+      wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64 && chmod 755 regsync-linux-amd64
 
-      ./regsync-linux-amd64 check -c $CONFIG
+      echo "::group::Checking"
+      ./regsync-linux-amd64 -c $CONFIG check
+      echo "::endgroup"
 
-      ./regsync-linux-amd64 -c "$CONFIG" once
+      echo "::group::Syncing"
+      ./regsync-linux-amd64 -c $CONFIG once
+      echo "::endgroup"
+
     shell: bash
