@@ -44,36 +44,35 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    -
-      run: |
-        set -e
-        set -x
+  - run: |
+      set -e
+      set -x
 
-        SRC_USER=${{ inputs.src-username }}
-        SRC_PASS=${{ inputs.src-password }}
-        SRC_REGISTRY=${{ inputs.src-registry }}
-        SRC_REPO=${{ inputs.src-repo }}
-        DST_USER=${{ inputs.dst-username }}
-        DST_PASS=${{ inputs.dst-password }}
-        DST_REPO=${{ inputs.dst-repo }}
-        DST_REGISTRY=${{ inputs.dst-registry }}
-        CONFIG=${{ inputs.config }}
+      SRC_USER=${{ inputs.src-username }}
+      SRC_PASS=${{ inputs.src-password }}
+      SRC_REGISTRY=${{ inputs.src-registry }}
+      SRC_REPO=${{ inputs.src-repo }}
+      DST_USER=${{ inputs.dst-username }}
+      DST_PASS=${{ inputs.dst-password }}
+      DST_REPO=${{ inputs.dst-repo }}
+      DST_REGISTRY=${{ inputs.dst-registry }}
+      CONFIG=${{ inputs.config }}
 
-        CURRENT_YEAR=$(date +'%Y')
-        LAST_YEAR=$((CURRENT_YEAR - 1))
+      CURRENT_YEAR=$(date +'%Y')
+      LAST_YEAR=$((CURRENT_YEAR - 1))
 
-        sed -i "s@REPLACE_ME_SOURCE_REGISTRY@$SRC_REGISTRY@g" $CONFIG
-        sed -i "s@REPLACE_ME_SOURCE_REPO@$SRC_REPO@g" $CONFIG
-        sed -i "s@REPLACE_ME_TARGET_REGISTRY@$DST_REGISTRY@g" $CONFIG
-        sed -i "s@REPLACE_ME_TARGET_REPO@$DST_REPO@g" $CONFIG
+      sed -i "s@REPLACE_ME_SOURCE_REGISTRY@$SRC_REGISTRY@g" $CONFIG
+      sed -i "s@REPLACE_ME_SOURCE_REPO@$SRC_REPO@g" $CONFIG
+      sed -i "s@REPLACE_ME_TARGET_REGISTRY@$DST_REGISTRY@g" $CONFIG
+      sed -i "s@REPLACE_ME_TARGET_REPO@$DST_REPO@g" $CONFIG
 
-        sed -i "s@REPLACE_ME_CURRENT_YEAR@$CURRENT_YEAR@g" $CONFIG
-        sed -i "s@REPLACE_ME_LAST_YEAR@$LAST_YEAR@g" $CONFIG
+      sed -i "s@REPLACE_ME_CURRENT_YEAR@$CURRENT_YEAR@g" $CONFIG
+      sed -i "s@REPLACE_ME_LAST_YEAR@$LAST_YEAR@g" $CONFIG
 
-        cat $CONFIG
+      cat $CONFIG
 
-        wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
-        chmod 755 regsync-linux-amd64
+      wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
+      chmod 755 regsync-linux-amd64
 
-        ./regsync-linux-amd64 -c "$CONFIG" once
-      shell: bash
+      ./regsync-linux-amd64 -c "$CONFIG" once
+    shell: bash
