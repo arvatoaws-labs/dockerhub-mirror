@@ -12,10 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: Get Current Branch Name
+      id: get_branch
+      run: git rev-parse --abbrev-ref HEAD
 
     - name: Mirror
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub@${{ steps.output.get_branch }}
       with:
         src-username: ${{ secrets.DOCKERHUB_USERNAME }}
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
