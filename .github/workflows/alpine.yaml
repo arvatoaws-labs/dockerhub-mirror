@@ -16,10 +16,10 @@ jobs:
 
     - name: Get Current Branch Name
       id: get_branch
-      run: echo "::set-output name=branch::$(git rev-parse --abbrev-ref HEAD)"
+      script: git rev-parse --abbrev-ref HEAD
 
     - name: Mirror
-      uses: arvatoaws-labs/dockerhub-mirror@${{ steps.get_branch.outputs.branch }}"
+      uses: arvatoaws-labs/dockerhub@${{ step.output.get_branch }}
       with:
         src-username: ${{ secrets.DOCKERHUB_USERNAME }}
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
