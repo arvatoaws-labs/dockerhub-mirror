@@ -27,5 +27,5 @@ jobs:
         dst-password: ${{ secrets.CR_PAT }}
         config: config/generic.yaml
 
-        src-repo: ltravisghansen/external-auth-server
+        src-repo: travisghansen/external-auth-server
         dst-repo: arvatoaws-labs/external-auth-server

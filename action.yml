@@ -47,6 +47,7 @@ runs:
   - run: |
       echo "::group::Preparing"
       set -e
+      set -x
       export SRC_USER=${{ inputs.src-username }}
       export SRC_PASS=${{ inputs.src-password }}
       export SRC_REGISTRY=${{ inputs.src-registry }}
