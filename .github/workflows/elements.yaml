@@ -27,5 +27,5 @@ jobs:
         dst-password: ${{ secrets.CR_PAT }}
         config: config/generic.yaml
 
-        src-repo: lvectorim/element-web
+        src-repo: vectorim/element-web
         dst-repo: arvatoaws-labs/element-web
