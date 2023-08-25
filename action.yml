@@ -75,5 +75,7 @@ runs:
         wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64
         chmod 755 regsync-linux-amd64
 
+        ./regsync-linux-amd64 check -c $CONFIG
+
         ./regsync-linux-amd64 -c "$CONFIG" once
       shell: bash
