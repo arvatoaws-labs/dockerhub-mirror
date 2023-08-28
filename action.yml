@@ -41,6 +41,11 @@ inputs:
     required: true
     default: config/generic.yaml
 
+  loglevel:
+    description: 'loglevel to use (debug, info, warn, error, fatal, panic)'
+    required: true
+    default: info
+
 runs:
   using: 'composite'
   steps:
@@ -56,12 +61,7 @@ runs:
       export DST_REPO=${{ inputs.dst-repo }}
       export DST_REGISTRY=${{ inputs.dst-registry }}
       export CONFIG=${{ inputs.config }}
-
-      export CURRENT_YEAR=$(date +'%Y')
-      export LAST_YEAR=$((CURRENT_YEAR - 1))
-
-      sed -i "s@REPLACE_ME_CURRENT_YEAR@$CURRENT_YEAR@g" $CONFIG
-      sed -i "s@REPLACE_ME_LAST_YEAR@$LAST_YEAR@g" $CONFIG
+      export LOGLEVEL=${{ inputs.loglevel }}
 
       wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64 && chmod 755 regsync-linux-amd64
 
@@ -74,11 +74,11 @@ runs:
       echo "::endgroup"
 
       echo "::group::Checking"
-      ./regsync-linux-amd64 -c $CONFIG check
+      ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL check
       echo "::endgroup"
 
       echo "::group::Syncing"
-      ./regsync-linux-amd64 -c $CONFIG once
+      ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL once
       echo "::endgroup"
 
     shell: bash
