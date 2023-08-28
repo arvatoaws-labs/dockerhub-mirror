@@ -22,4 +22,5 @@ sync:
     - "3.\\d+"
     deny:
     - ".*windows.*"
+    - ".*nanonserver.*"
     - ".*rc.*"

@@ -24,6 +24,7 @@ sync:
     deny:
     - ".*32bit.*"
     - ".*windows.*"
+    - ".*nanonserver.*"
     - ".*-rc.*"
     - ".*-alpha.*"
     - ".*-beta.*"

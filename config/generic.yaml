@@ -21,3 +21,9 @@ sync:
     - "latest"
     - "stable"
     - "current"
+    - "\\d+"
+    - "\\d+.\\d+"
+    deny:
+    - ".*windows.*"
+    - ".*nanonserver.*"
+    - ".*rc.*"
