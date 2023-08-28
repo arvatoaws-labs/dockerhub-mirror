@@ -21,6 +21,7 @@ sync:
     - "latest"
     - "mainline.*"
     - "stable.*"
-    - "1.\\d+.*"
+    - "1.\\d[2-3].*"
+    - "1.\\d[2-3].\\d+.*"
     deny:
     - ".*perl.*"
