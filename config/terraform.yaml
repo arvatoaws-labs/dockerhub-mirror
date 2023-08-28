@@ -17,8 +17,7 @@ sync:
   target: "{{env \"DST_REGISTRY\"}}/{{env \"DST_REPO\"}}"
   type: repository
   tags:
-    tags:
-      allow:
-      - "latest"
-      - "1.\\d+.\\d+"
-      - "1.\\d+"
+    allow:
+    - "latest"
+    - "1.\\d+.\\d+"
+    - "1.\\d+"
