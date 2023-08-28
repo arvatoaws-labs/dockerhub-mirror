@@ -65,6 +65,10 @@ runs:
 
       wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64 && chmod 755 regsync-linux-amd64
 
+      echo "::group::Version"
+      ./regsync-linux-amd64 version
+      echo "::endgroup"
+
       echo "::group::Config"
       cat $CONFIG
       echo "::endgroup"
