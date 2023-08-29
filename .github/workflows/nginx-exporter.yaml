@@ -25,7 +25,7 @@ jobs:
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
         dst-username: ${{ secrets.CR_USERNAME }}
         dst-password: ${{ secrets.CR_PAT }}
-        config: config/generic_anything.yaml
+        config: config/generic.yaml
 
         src-repo: nginx/nginx-prometheus-exporter
         dst-repo: arvatoaws-labs/nginx-exporter

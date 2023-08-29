@@ -24,7 +24,8 @@ sync:
     - "main"
     - "master"
     - "(v)?\\d+"
-    - "(v)?\\d+.\\d+"
+    - "(v)?\\d+\\.\\d+"
+    - "(v)?\\d+\\.\\d+\\.\\d+"
     deny:
     - ".*windows.*"
     - ".*nanonserver.*"
