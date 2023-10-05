@@ -1,0 +1,31 @@
+name: rust
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  schedule:
+  # * is a special character in YAML so you have to quote this string
+  - cron: '45 13 * * *'
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Get Current Branch Name
+      id: get_branch
+      run: git rev-parse --abbrev-ref HEAD
+
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        src-username: ${{ secrets.DOCKERHUB_USERNAME }}
+        src-password: ${{ secrets.DOCKERHUB_TOKEN }}
+        dst-username: ${{ secrets.CR_USERNAME }}
+        dst-password: ${{ secrets.CR_PAT }}
+        config: config/rust.yaml
+
+        src-repo: library/rust
+        dst-repo: arvatoaws-labs/rust
