@@ -79,6 +79,7 @@ runs:
       echo "::endgroup"
 
       echo "::group::Syncing"
+      echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
       GITHUB_TOKEN=$GITHUB_TOKEN ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL once
       echo "::endgroup"
 
