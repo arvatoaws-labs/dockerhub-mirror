@@ -64,6 +64,7 @@ runs:
       export DST_REGISTRY=${{ inputs.dst-registry }}
       export CONFIG=${{ inputs.config }}
       export LOGLEVEL=${{ inputs.loglevel }}
+      export GITHUB_TOKEN=${{ inputs.dst-password }}
 
       wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64 && chmod 755 regsync-linux-amd64
 
