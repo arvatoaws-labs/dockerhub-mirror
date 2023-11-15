@@ -75,11 +75,11 @@ runs:
       echo "::endgroup"
 
       echo "::group::Checking"
-      GITHUB_TOKEN=$GITHUB_TOKEN ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL check
+      ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL check
       echo "::endgroup"
 
       echo "::group::Syncing"
-      ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL once
+      GITHUB_TOKEN=$GITHUB_TOKEN ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL once
       echo "::endgroup"
 
     shell: bash
