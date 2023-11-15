@@ -6,6 +6,9 @@ on:
   schedule:
   # * is a special character in YAML so you have to quote this string
   - cron: '40 9 * * *'
+  push:
+    branches:
+      - 'cr/jenkins_removal'
 
 jobs:
   mirror:
