@@ -48,6 +48,8 @@ inputs:
 
 runs:
   using: 'composite'
+  permissions:
+    packages: write
   steps:
   - run: |
       set -e
