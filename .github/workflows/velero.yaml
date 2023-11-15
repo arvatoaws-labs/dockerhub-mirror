@@ -36,6 +36,7 @@ jobs:
         dst-username: ${{ secrets.DOCKER_PULL_PUSH_APP_ID }} #${{ secrets.CR_USERNAME }}
         dst-password: ${{ steps.generate-token.outputs.token }} #${{ secrets.CR_PAT }}
         config: config/generic.yaml
+        loglevel: debug
 
         src-repo: velero/velero
         dst-repo: arvatoaws-labs/velero
