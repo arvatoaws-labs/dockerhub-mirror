@@ -33,8 +33,8 @@ jobs:
       with:
         src-username: ${{ secrets.DOCKERHUB_USERNAME }}
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
-        dst-username: ${{ secrets.DOCKER_PULL_PUSH_APP_ID }} #${{ secrets.CR_USERNAME }}
-        dst-password: ${{ steps.generate-token.outputs.token }} #${{ secrets.CR_PAT }}
+        dst-username: $ #${{ secrets.DOCKER_PULL_PUSH_APP_ID }} #${{ secrets.CR_USERNAME }}
+        dst-password: ${{ secrets.GITHUB_TOKEN }} #${{ steps.generate-token.outputs.token }} #${{ secrets.CR_PAT }}
         config: config/generic.yaml
         loglevel: debug
 
