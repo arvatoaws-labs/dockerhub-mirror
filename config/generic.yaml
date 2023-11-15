@@ -4,8 +4,8 @@ creds:
   user: "{{env \"SRC_USER\"}}"
   pass: "{{env \"SRC_PASS\"}}"
 - registry: "{{env \"DST_REGISTRY\"}}"
-  user: "{{env \"DST_USER\"}}"
-  pass: "{{env \"DST_PASS\"}}"
+  # user: "{{env \"DST_USER\"}}"
+  # pass: "{{env \"DST_PASS\"}}"
 
 defaults:
   ratelimit:
