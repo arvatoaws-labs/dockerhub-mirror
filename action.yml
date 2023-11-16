@@ -62,7 +62,6 @@ runs:
       export DST_REGISTRY=${{ inputs.dst-registry }}
       export CONFIG=${{ inputs.config }}
       export LOGLEVEL=${{ inputs.loglevel }}
-      export GITHUB_TOKEN=${{ inputs.dst-password }}
 
       wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64 && chmod 755 regsync-linux-amd64
 
@@ -79,8 +78,7 @@ runs:
       echo "::endgroup"
 
       echo "::group::Syncing"
-      echo $GITHUB_TOKEN | docker login ghcr.io -u $ --password-stdin
-      GITHUB_TOKEN=$GITHUB_TOKEN ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL once
+      ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL once
       echo "::endgroup"
 
     shell: bash
