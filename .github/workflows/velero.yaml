@@ -23,7 +23,7 @@ jobs:
       with:
         src-username: ${{ secrets.DOCKERHUB_USERNAME }}
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
-        dst-username: $
+        dst-username: ${{github.actor}} #$
         dst-password: ${{ secrets.GITHUB_TOKEN }}
         config: config/generic.yaml
 
