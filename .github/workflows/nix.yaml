@@ -23,8 +23,11 @@ jobs:
       with:
         src-username: ${{ secrets.DOCKERHUB_USERNAME }}
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
-        dst-username: ${{ secrets.CR_USERNAME }}
-        dst-password: ${{ secrets.CR_PAT }}
+        ### https://dev.to/willvelida/pushing-container-images-to-github-container-registry-with-github-actions-1m6b
+        ### login via gh app not possible yet: https://github.com/orgs/community/discussions/24636
+        dst-username: ${{github.actor}}
+        dst-password: ${{ secrets.GITHUB_TOKEN }}
+        ###
         config: config/generic.yaml
 
         src-repo: nixos/nix
