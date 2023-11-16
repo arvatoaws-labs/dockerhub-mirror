@@ -19,12 +19,13 @@ jobs:
       run: git rev-parse --abbrev-ref HEAD
 
     - name: Mirror
-      uses: arvatoaws-labs/dockerhub-mirror@cr/jenkins_removal
+      uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         src-username: ${{ secrets.DOCKERHUB_USERNAME }}
         src-password: ${{ secrets.DOCKERHUB_TOKEN }}
         dst-username: $
         dst-password: ${{ secrets.GITHUB_TOKEN }}
         config: config/generic.yaml
+
         src-repo: velero/velero
         dst-repo: arvatoaws-labs/velero
