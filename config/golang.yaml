@@ -18,18 +18,12 @@ sync:
   type: repository
   tags:
     allow:
-    - "latest"
-    - "stable"
-    - "current"
-    - "main"
-    - "master"
-    - "alpine"
+    - latest
+    - alpine
+    - ".*alpine"
     - "(v)?\\d+"
     - "(v)?\\d+\\.\\d+"
     - "(v)?\\d+\\.\\d+\\.\\d+"
-    - "(v)?\\d+-alpine"
-    - "(v)?\\d+\\.\\d+-alpine"
-    - "(v)?\\d+\\.\\d+\\.\\d+-alpine"
     deny:
     - ".*windows.*"
     - ".*nanonserver.*"

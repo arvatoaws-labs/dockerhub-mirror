@@ -28,7 +28,7 @@ jobs:
         dst-username: ${{github.actor}}
         dst-password: ${{ secrets.GITHUB_TOKEN }}
         ###
-        config: config/generic.yaml
+        config: config/golang.yaml
 
         src-repo: library/golang
         dst-repo: arvatoaws-labs/golang
