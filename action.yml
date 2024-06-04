@@ -68,6 +68,7 @@ runs:
       echo "::group::Version"
       uname -a
       cat /etc/os-release
+      lscpu
       ./regsync-linux-arm64 version
       echo "::endgroup"
 
