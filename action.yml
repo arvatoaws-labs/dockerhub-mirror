@@ -63,10 +63,12 @@ runs:
       export CONFIG=${{ inputs.config }}
       export LOGLEVEL=${{ inputs.loglevel }}
 
-      wget -q https://github.com/regclient/regclient/releases/download/v0.5.1/regsync-linux-amd64 && chmod 755 regsync-linux-amd64
+      wget -q https://github.com/regclient/regclient/releases/download/v0.6.1/regsync-linux-arm64 && chmod 755 regsync-linux-arm64
 
       echo "::group::Version"
-      ./regsync-linux-amd64 version
+      uname -a
+      cat /etc/os-release
+      ./regsync-linux-arm64 version
       echo "::endgroup"
 
       echo "::group::Config"
@@ -74,11 +76,11 @@ runs:
       echo "::endgroup"
 
       echo "::group::Checking"
-      ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL check
+      ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL check
       echo "::endgroup"
 
       echo "::group::Syncing"
-      ./regsync-linux-amd64 -c $CONFIG -v $LOGLEVEL once
+      ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL once
       echo "::endgroup"
 
     shell: bash
