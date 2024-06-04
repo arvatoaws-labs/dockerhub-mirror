@@ -8,7 +8,7 @@ on:
 
 jobs:
   del_runs:
-    runs-on: ubuntu-latest
+    runs-on: arvato
     permissions:
       actions: write
     steps:

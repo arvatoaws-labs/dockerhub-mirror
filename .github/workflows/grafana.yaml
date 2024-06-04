@@ -9,7 +9,7 @@ on:
 
 jobs:
   mirror:
-    runs-on: ubuntu-latest
+    runs-on: arvato
     steps:
     - name: Checkout
       uses: actions/checkout@v4
