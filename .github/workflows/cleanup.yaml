@@ -2,6 +2,10 @@ name: Delete old workflow runs
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  push:
+    branches:
+    - master
+    - main
   schedule:
     - cron: '0 0 1 * *'
 # Run monthly, at 00:00 on the 1st day of month.
