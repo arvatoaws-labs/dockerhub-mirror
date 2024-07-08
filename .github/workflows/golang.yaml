@@ -3,13 +3,13 @@ name: golang
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  push:
-    branches:
-    - master
-    - main
-  schedule:
-  # * is a special character in YAML so you have to quote this string
-  - cron: '10 2 * * *'
+  # push:
+  #   branches:
+  #   - master
+  #   - main
+  # schedule:
+  # # * is a special character in YAML so you have to quote this string
+  # - cron: '10 2 * * *'
 
 jobs:
   mirror:

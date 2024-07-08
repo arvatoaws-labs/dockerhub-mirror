@@ -9,7 +9,7 @@ on:
     - main
   schedule:
   # * is a special character in YAML so you have to quote this string
-  - cron: '50 13 * * *'
+  - cron: '50 13 * * 2'
 
 jobs:
   mirror:

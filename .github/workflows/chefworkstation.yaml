@@ -32,7 +32,7 @@ jobs:
         dst-username: ${{github.actor}}
         dst-password: ${{ secrets.GITHUB_TOKEN }}
         ###
-        config: config/generic.yaml
+        config: config/chefworkstation.yaml
 
         src-repo: chef/chefworkstation
         dst-repo: arvatoaws-labs/chefworkstation
