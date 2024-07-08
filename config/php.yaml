@@ -9,8 +9,8 @@ creds:
 
 defaults:
   ratelimit:
-    min: 100
-    retry: 15m
+    min: 500
+    retry: 5m
   parallel: 2
 sync:
 - source: "{{env \"SRC_REGISTRY\"}}/{{env \"SRC_REPO\"}}"
