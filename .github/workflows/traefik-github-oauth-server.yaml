@@ -1,0 +1,38 @@
+name: traefik-github-oauth-server
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #   - master
+  #   - main
+  schedule:
+  # * is a special character in YAML so you have to quote this string
+  - cron: '40 10 * * *'
+
+jobs:
+  mirror:
+    runs-on: arvato
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Get Current Branch Name
+      id: get_branch
+      run: git rev-parse --abbrev-ref HEAD
+
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        src-username: ${{ secrets.DOCKERHUB_USERNAME }}
+        src-password: ${{ secrets.DOCKERHUB_TOKEN }}
+        ### https://dev.to/willvelida/pushing-container-images-to-github-container-registry-with-github-actions-1m6b
+        ### login via gh app not possible yet: https://github.com/orgs/community/discussions/24636
+        dst-username: ${{github.actor}}
+        dst-password: ${{ secrets.GITHUB_TOKEN }}
+        ###
+        config: config/generic.yaml
+
+        src-repo: luizfonseca/traefik-github-oauth-server
+        dst-repo: arvatoaws-labs/traefik-github-oauth-server
