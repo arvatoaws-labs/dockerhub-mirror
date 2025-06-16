@@ -19,6 +19,7 @@ sync:
   tags:
     allow:
     - "latest"
+    - "12.0.0-security-01"
     - "12.\\d+.\\d+"
     - "11.\\d+.\\d+"
     - "10.\\d+.\\d+"
