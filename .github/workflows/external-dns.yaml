@@ -34,5 +34,5 @@ jobs:
         ###
         config: config/external-dns.yaml
 
-        src-repo: bitnami/external-dns
+        src-repo: bitnamilegacy/external-dns
         dst-repo: arvatoaws-labs/external-dns

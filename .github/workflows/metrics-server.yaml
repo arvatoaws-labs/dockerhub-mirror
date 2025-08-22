@@ -34,5 +34,5 @@ jobs:
         ###
         config: config/metrics-server.yaml
 
-        src-repo: bitnami/metrics-server
+        src-repo: bitnamilegacy/metrics-server
         dst-repo: arvatoaws-labs/metrics-server
