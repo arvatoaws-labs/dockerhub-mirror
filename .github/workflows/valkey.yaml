@@ -1,4 +1,4 @@
-name: bitnami-os-shell
+name: valkey
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -32,7 +32,7 @@ jobs:
         dst-username: ${{github.actor}}
         dst-password: ${{ secrets.GITHUB_TOKEN }}
         ###
-        config: config/bitnamilegacy.yaml
+        config: config/generic.yaml
 
-        src-repo: bitnamilegacy/os-shell
-        dst-repo: arvatoaws-labs/bitnami-os-shell
+        src-repo: valkey/valkey
+        dst-repo: arvatoaws-labs/valkey

@@ -1,4 +1,4 @@
-name: bitnami-os-shell
+name: bitnami-redis-exporter
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -34,5 +34,5 @@ jobs:
         ###
         config: config/bitnamilegacy.yaml
 
-        src-repo: bitnamilegacy/os-shell
-        dst-repo: arvatoaws-labs/bitnami-os-shell
+        src-repo: bitnamilegacy/redis-exporter
+        dst-repo: arvatoaws-labs/bitnami-redis-exporter
