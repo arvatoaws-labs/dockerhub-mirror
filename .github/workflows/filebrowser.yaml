@@ -32,7 +32,7 @@ jobs:
         dst-username: ${{github.actor}}
         dst-password: ${{ secrets.GITHUB_TOKEN }}
         ###
-        config: config/generic.yaml
+        config: config/generic_dynamic.yaml
 
         src-repo: filebrowser/filebrowser
         dst-repo: arvatoaws-labs/filebrowser
