@@ -18,4 +18,8 @@ sync:
   type: repository
   tags:
     allow:
+    - "latest"
+    - "5"
+    - "5.\\d+"
+    - "5.\\d+.\\d+"
     - ".*fpm-alpine"
