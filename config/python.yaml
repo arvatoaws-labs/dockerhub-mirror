@@ -19,9 +19,14 @@ sync:
   tags:
     allow:
     - "latest"
+    - "3.\\d+.\\d+"
+    - "3.\\d+.\\d+-alpine"
+    - "3.\\d+.\\d+-slim"
     - "3.\\d+"
     - "3.\\d+-alpine"
+    - "3.\\d+-slim"
     - "3-alpine"
+    - "3-slim"
     - '2\.7'
     - '2\.7-alpine'
     deny:
