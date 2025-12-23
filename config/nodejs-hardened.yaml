@@ -9,8 +9,8 @@ sync:
   type: repository
   tags:
     allow:
-    - "3"
-    - "3.\\d+"
+    - "\\d+"
+    - "\\d+-alpine\\d+.\\d+"
     deny:
     - ".*windows.*"
     - ".*nanonserver.*"
