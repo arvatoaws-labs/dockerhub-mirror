@@ -1,0 +1,15 @@
+defaults:
+  ratelimit:
+    min: 20
+    retry: 1m
+  parallel: 2
+sync:
+- source: "{{env \"SRC_REGISTRY\"}}/{{env \"SRC_REPO\"}}"
+  target: "{{env \"DST_REGISTRY\"}}/{{env \"DST_REPO\"}}"
+  type: repository
+  #not images, so we just make sure only semver charts are taken, without release candidates
+  tags:
+    allow:
+      - "^\\d+\\.\\d+\\.\\d+$"
+    deny:
+      - ".*rc.*"
