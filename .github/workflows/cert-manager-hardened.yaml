@@ -1,0 +1,61 @@
+name: cert-manager-hardened
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  push:
+    branches:
+    - master
+    - main
+  schedule:
+  # * is a special character in YAML so you have to quote this string
+  - cron: '0 13 * * *'
+
+jobs:
+  mirror:
+    runs-on: arvato
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+    - name: Get Current Branch Name
+      id: get_branch
+      run: git rev-parse --abbrev-ref HEAD
+    - name: Login to Docker Hub Hardened
+      uses: docker/login-action@v3
+      with:
+        registry: dhi.io
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: cert-manager-controller
+        dst-repo: arvatoaws-labs/cert-manager-controller-hardened
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: cert-manager-caininjector
+        dst-repo: arvatoaws-labs/cert-manager-caininjector-hardened
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: cert-manager-acmesolver
+        dst-repo: arvatoaws-labs/cert-manager-acmesolver-hardened
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: cert-manager-webhook
+        dst-repo: arvatoaws-labs/cert-manager-webhook-hardened

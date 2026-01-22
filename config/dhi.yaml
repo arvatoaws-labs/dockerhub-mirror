@@ -1,0 +1,15 @@
+defaults:
+  ratelimit:
+    min: 20
+    retry: 1m
+  parallel: 2
+sync:
+- source: "{{env \"SRC_REGISTRY\"}}/{{env \"SRC_REPO\"}}"
+  target: "{{env \"DST_REGISTRY\"}}/{{env \"DST_REPO\"}}"
+  type: repository
+  tags:
+    allow:
+      # DHI has clear rules for tagging, meaning we can use a single regex for all DHI images.
+      - "^\\d+(?:\\.\\d+){0,2}(?:-(?:debian|alpine)\\d+(?:\\.\\d+)*)?(?:-(?:fips|stig))?$"
+    deny:
+      - ".*-dev$"
