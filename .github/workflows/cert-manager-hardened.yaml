@@ -43,8 +43,8 @@ jobs:
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
-        src-repo: cert-manager-caininjector
-        dst-repo: arvatoaws-labs/cert-manager-caininjector-hardened
+        src-repo: cert-manager-cainjector
+        dst-repo: arvatoaws-labs/cert-manager-cainjector-hardened
     - name: Mirror
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
