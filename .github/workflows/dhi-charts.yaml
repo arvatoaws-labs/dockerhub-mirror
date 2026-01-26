@@ -66,5 +66,5 @@ jobs:
       with:
         config: config/chart-hardened.yaml
         src-registry: dhi.io
-        src-repo: traefik-chart-chart
+        src-repo: traefik-chart
         dst-repo: arvatoaws-labs/traefik-chart-hardened
