@@ -1,4 +1,4 @@
-name: cert-manager-hardened
+name: docker-hardened-images
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,6 +31,8 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    
+    # cert-manager
     - name: Mirror
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -59,3 +61,31 @@ jobs:
         src-registry: dhi.io
         src-repo: cert-manager-webhook
         dst-repo: arvatoaws-labs/cert-manager-webhook-hardened
+
+    # external-dns
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: external-dns
+        dst-repo: arvatoaws-labs/external-dns-hardened
+
+    # metrics-server
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: metrics-server
+        dst-repo: arvatoaws-labs/metrics-server-hardened
+
+    # traefik
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: traefik
+        dst-repo: arvatoaws-labs/traefik-hardened
+    

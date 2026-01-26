@@ -1,4 +1,4 @@
-name: cert-manager-chart-hardened
+name: docker-hardened-charts
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -32,6 +32,8 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    
+    # cert-manager
     - name: Mirror
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -39,3 +41,30 @@ jobs:
         src-registry: dhi.io
         src-repo: cert-manager-chart
         dst-repo: arvatoaws-labs/cert-manager-chart-hardened
+    
+    # external-dns
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: external-dns-chart
+        dst-repo: arvatoaws-labs/external-dns-chart-hardened
+    
+    # metrics-server
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: metrics-server-chart
+        dst-repo: arvatoaws-labs/metrics-server-chart-hardened
+    
+    # traefik
+    - name: Mirror
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: traefik-chart-chart
+        dst-repo: arvatoaws-labs/traefik-chart-hardened
