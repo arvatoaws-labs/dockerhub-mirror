@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     
     # cert-manager
-    - name: Mirror
+    - name: Mirror cert-manager chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/chart-hardened.yaml
@@ -43,7 +43,7 @@ jobs:
         dst-repo: arvatoaws-labs/cert-manager-chart-hardened
     
     # external-dns
-    - name: Mirror
+    - name: Mirror external-dns chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/chart-hardened.yaml
@@ -52,7 +52,7 @@ jobs:
         dst-repo: arvatoaws-labs/external-dns-chart-hardened
     
     # metrics-server
-    - name: Mirror
+    - name: Mirror metrics-server chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/chart-hardened.yaml
@@ -61,7 +61,7 @@ jobs:
         dst-repo: arvatoaws-labs/metrics-server-chart-hardened
     
     # traefik
-    - name: Mirror
+    - name: Mirror traefik chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/chart-hardened.yaml

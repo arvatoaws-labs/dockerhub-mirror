@@ -33,28 +33,28 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     
     # cert-manager
-    - name: Mirror
+    - name: Mirror cert-manager-controller
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
         src-repo: cert-manager-controller
         dst-repo: arvatoaws-labs/cert-manager-controller-hardened
-    - name: Mirror
+    - name: Mirror cert-manager-cainjector
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
         src-repo: cert-manager-cainjector
         dst-repo: arvatoaws-labs/cert-manager-cainjector-hardened
-    - name: Mirror
+    - name: Mirror cert-manager-acmesolver
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
         src-repo: cert-manager-acmesolver
         dst-repo: arvatoaws-labs/cert-manager-acmesolver-hardened
-    - name: Mirror
+    - name: Mirror cert-manager-webhook
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -63,7 +63,7 @@ jobs:
         dst-repo: arvatoaws-labs/cert-manager-webhook-hardened
 
     # external-dns
-    - name: Mirror
+    - name: Mirror external-dns
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -72,7 +72,7 @@ jobs:
         dst-repo: arvatoaws-labs/external-dns-hardened
 
     # metrics-server
-    - name: Mirror
+    - name: Mirror metrics-server
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -81,11 +81,21 @@ jobs:
         dst-repo: arvatoaws-labs/metrics-server-hardened
 
     # traefik
-    - name: Mirror
+    - name: Mirror traefik
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
         src-repo: traefik
         dst-repo: arvatoaws-labs/traefik-hardened
+
+    # keda
+    - name: Mirror keda
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: keda
+        dst-repo: arvatoaws-labs/keda-hardened
+
     
