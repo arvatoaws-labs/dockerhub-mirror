@@ -97,5 +97,19 @@ jobs:
         src-registry: dhi.io
         src-repo: keda
         dst-repo: arvatoaws-labs/keda-hardened
+    - name: Mirror keda
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: keda-metrics-apiserver
+        dst-repo: arvatoaws-labs/keda-metrics-apiserver-hardened
+    - name: Mirror keda
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: keda-admission-webhooks
+        dst-repo: arvatoaws-labs/keda-admission-webhooks-hardened
 
     
