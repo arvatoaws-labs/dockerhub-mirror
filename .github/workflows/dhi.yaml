@@ -112,14 +112,14 @@ jobs:
         src-repo: keda-admission-webhooks
         dst-repo: arvatoaws-labs/keda-admission-webhooks-hardened
     
-    # karpenter
-    - name: Mirror karpenter
+    # stakater-reloader
+    - name: Mirror stakater-reloader
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
-        src-repo: karpenter
-        dst-repo: arvatoaws-labs/karpenter-hardened
+        src-repo: stakater-reloader
+        dst-repo: arvatoaws-labs/stakater-reloader-hardened
 
 
     
