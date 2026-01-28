@@ -34,6 +34,7 @@ jobs:
     
     # cert-manager
     - name: Mirror cert-manager-controller
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -41,6 +42,7 @@ jobs:
         src-repo: cert-manager-controller
         dst-repo: arvatoaws-labs/cert-manager-controller-hardened
     - name: Mirror cert-manager-cainjector
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -48,6 +50,7 @@ jobs:
         src-repo: cert-manager-cainjector
         dst-repo: arvatoaws-labs/cert-manager-cainjector-hardened
     - name: Mirror cert-manager-acmesolver
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -55,6 +58,7 @@ jobs:
         src-repo: cert-manager-acmesolver
         dst-repo: arvatoaws-labs/cert-manager-acmesolver-hardened
     - name: Mirror cert-manager-webhook
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -64,6 +68,7 @@ jobs:
 
     # external-dns
     - name: Mirror external-dns
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -73,6 +78,7 @@ jobs:
 
     # metrics-server
     - name: Mirror metrics-server
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -82,6 +88,7 @@ jobs:
 
     # traefik
     - name: Mirror traefik
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -91,6 +98,7 @@ jobs:
 
     # keda
     - name: Mirror keda
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -98,6 +106,7 @@ jobs:
         src-repo: keda
         dst-repo: arvatoaws-labs/keda-hardened
     - name: Mirror keda-metrics-apiserver
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -105,6 +114,7 @@ jobs:
         src-repo: keda-metrics-apiserver
         dst-repo: arvatoaws-labs/keda-metrics-apiserver-hardened
     - name: Mirror keda-admission-webhooks
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
@@ -112,14 +122,192 @@ jobs:
         src-repo: keda-admission-webhooks
         dst-repo: arvatoaws-labs/keda-admission-webhooks-hardened
     
-    # stakater-reloader
-    - name: Mirror stakater-reloader
+    # alpine
+    - name: Mirror alpine-base
+      if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
-        src-repo: stakater-reloader
-        dst-repo: arvatoaws-labs/stakater-reloader-hardened
+        src-repo: alpine-base
+        dst-repo: arvatoaws-labs/alpine-base-hardened
 
-
+    # busybox
+    - name: Mirror busybox
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: busybox
+        dst-repo: arvatoaws-labs/busybox-hardened
     
+    # curl
+    - name: Mirror curl
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: curl
+        dst-repo: arvatoaws-labs/curl-hardened
+
+    # elasticsearch
+    - name: Mirror elasticsearch
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: elasticsearch
+        dst-repo: arvatoaws-labs/elasticsearch-hardened
+
+    # golang
+    - name: Mirror golang
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: golang
+        dst-repo: arvatoaws-labs/golang-hardened
+    
+    # grafana
+    - name: Mirror grafana
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: grafana
+        dst-repo: arvatoaws-labs/grafana-hardened
+
+    # liquibase
+    - name: Mirror liquibase
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: liquibase
+        dst-repo: arvatoaws-labs/liquibase-hardened
+    
+    # mongodb
+    - name: Mirror mongodb
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: mongodb
+        dst-repo: arvatoaws-labs/mongodb-hardened
+
+    # nginx-exporter
+    - name: Mirror nginx-exporter
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: nginx-exporter
+        dst-repo: arvatoaws-labs/nginx-exporter-hardened
+
+    # nginx
+    - name: Mirror nginx
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: nginx
+        dst-repo: arvatoaws-labs/nginx-hardened
+
+    # nodejs
+    - name: Mirror nodejs
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: node
+        dst-repo: arvatoaws-labs/node-hardened
+
+    # php
+    - name: Mirror php
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: php
+        dst-repo: arvatoaws-labs/php-hardened
+
+    # python
+    - name: Mirror python
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: python
+        dst-repo: arvatoaws-labs/python-hardened
+    
+    # redis
+    - name: Mirror redis
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: redis
+        dst-repo: arvatoaws-labs/redis-hardened
+
+    # ruby
+    - name: Mirror ruby
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: ruby
+        dst-repo: arvatoaws-labs/ruby-hardened
+
+    # rust
+    - name: Mirror rust
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: rust
+        dst-repo: arvatoaws-labs/rust-hardened
+
+    # valkey
+    - name: Mirror valkey
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: valkey
+        dst-repo: arvatoaws-labs/valkey-hardened
+
+    # velero-plugin-for-aws
+    - name: Mirror velero-plugin-for-aws
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: velero-plugin-for-aws
+        dst-repo: arvatoaws-labs/velero-plugin-for-aws-hardened
+
+    # velero
+    - name: Mirror velero
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: velero
+        dst-repo: arvatoaws-labs/velero-hardened
