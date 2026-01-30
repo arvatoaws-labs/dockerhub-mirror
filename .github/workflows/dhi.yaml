@@ -143,15 +143,6 @@ jobs:
         src-registry: dhi.io
         src-repo: curl
         dst-repo: arvatoaws-labs/curl-hardened
-    # elasticsearch
-    - name: Mirror elasticsearch
-      if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
-      with:
-        config: config/dhi.yaml
-        src-registry: dhi.io
-        src-repo: elasticsearch
-        dst-repo: arvatoaws-labs/elasticsearch-hardened
     # golang
     - name: Mirror golang
       if: always()
@@ -179,15 +170,6 @@ jobs:
         src-registry: dhi.io
         src-repo: liquibase
         dst-repo: arvatoaws-labs/liquibase-hardened
-    # mongodb
-    - name: Mirror mongodb
-      if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
-      with:
-        config: config/dhi.yaml
-        src-registry: dhi.io
-        src-repo: mongodb
-        dst-repo: arvatoaws-labs/mongodb-hardened
     # nginx-exporter
     - name: Mirror nginx-exporter
       if: always()
@@ -233,24 +215,6 @@ jobs:
         src-registry: dhi.io
         src-repo: python
         dst-repo: arvatoaws-labs/python-hardened
-    # redis
-    - name: Mirror redis
-      if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
-      with:
-        config: config/dhi.yaml
-        src-registry: dhi.io
-        src-repo: redis
-        dst-repo: arvatoaws-labs/redis-hardened
-    # ruby
-    - name: Mirror ruby
-      if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
-      with:
-        config: config/dhi.yaml
-        src-registry: dhi.io
-        src-repo: ruby
-        dst-repo: arvatoaws-labs/ruby-hardened
     # rust
     - name: Mirror rust
       if: always()
@@ -260,15 +224,6 @@ jobs:
         src-registry: dhi.io
         src-repo: rust
         dst-repo: arvatoaws-labs/rust-hardened
-    # valkey
-    - name: Mirror valkey
-      if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
-      with:
-        config: config/dhi.yaml
-        src-registry: dhi.io
-        src-repo: valkey
-        dst-repo: arvatoaws-labs/valkey-hardened
     # velero-plugin-for-aws
     - name: Mirror velero-plugin-for-aws
       if: always()
