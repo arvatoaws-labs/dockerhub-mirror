@@ -70,7 +70,7 @@ jobs:
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
-        src-repo: cert-manager-startuapicheck
+        src-repo: cert-manager-startupapicheck
         dst-repo: arvatoaws-labs/cert-manager-startupapicheck-hardened
     # external-dns
     - name: Mirror external-dns
