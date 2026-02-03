@@ -64,6 +64,14 @@ jobs:
         src-registry: dhi.io
         src-repo: cert-manager-webhook
         dst-repo: arvatoaws-labs/cert-manager-webhook-hardened
+    - name: Mirror cert-manager-startupapicheck
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: cert-manager-startuapicheck
+        dst-repo: arvatoaws-labs/cert-manager-startupapicheck-hardened
     # external-dns
     - name: Mirror external-dns
       if: always()
