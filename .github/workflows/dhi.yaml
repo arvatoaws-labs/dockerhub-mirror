@@ -250,3 +250,12 @@ jobs:
         src-registry: dhi.io
         src-repo: velero
         dst-repo: arvatoaws-labs/velero-hardened
+    # external-secrets
+    - name: Mirror external-secrets
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: external-secrets
+        dst-repo: arvatoaws-labs/external-secrets-hardened

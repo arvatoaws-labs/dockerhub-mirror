@@ -64,3 +64,11 @@ jobs:
         src-registry: dhi.io
         src-repo: traefik-chart
         dst-repo: arvatoaws-labs/traefik-chart-hardened
+    # external-secrets
+    - name: Mirror external-secrets chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: external-secrets-chart
+        dst-repo: arvatoaws-labs/external-secrets-chart-hardened
