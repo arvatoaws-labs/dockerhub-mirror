@@ -124,6 +124,95 @@ jobs:
         src-registry: dhi.io
         src-repo: keda-admission-webhooks
         dst-repo: arvatoaws-labs/keda-admission-webhooks-hardened
+    #kube-prometheus-stack
+    - name: Mirror kubectl
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kubectl
+        dst-repo: arvatoaws-labs/kubectl-hardened
+    - name: Mirror thanos
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: thanos
+        dst-repo: arvatoaws-labs/thanos-hardened
+    - name: Mirror prometheus
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: prometheus
+        dst-repo: arvatoaws-labs/prometheus-hardened
+    - name: Mirror alertmanager
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: alertmanager
+        dst-repo: arvatoaws-labs/alertmanager-hardened
+    - name: Mirror prometheus-operator
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: prometheus-operator
+        dst-repo: arvatoaws-labs/prometheus-operator-hardened
+    - name: Mirror prometheus-node-exporter
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: prometheus-node-exporter
+        dst-repo: arvatoaws-labs/prometheus-node-exporter-hardened
+    - name: Mirror kube-rbac-proxy
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kube-rbac-proxy
+        dst-repo: arvatoaws-labs/kube-rbac-proxy-hardened
+    - name: Mirror kube-state-metrics
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kube-state-metrics
+        dst-repo: arvatoaws-labs/kube-state-metrics-hardened
+    - name: Mirror grafana
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: grafana
+        dst-repo: arvatoaws-labs/grafana-hardened
+    - name: Mirror k8s-sidecar
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: k8s-sidecar
+        dst-repo: arvatoaws-labs/k8s-sidecar-hardened
+    - name: Mirror kube-webhook-certgen
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kube-webhook-certgen
+        dst-repo: arvatoaws-labs/kube-webhook-certgen-hardened
     # alpine
     - name: Mirror alpine-base
       if: always()
