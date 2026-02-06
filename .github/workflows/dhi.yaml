@@ -213,6 +213,14 @@ jobs:
         src-registry: dhi.io
         src-repo: kube-webhook-certgen
         dst-repo: arvatoaws-labs/kube-webhook-certgen-hardened
+    - name: Mirror prometheus-config-reloader
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: prometheus-config-reloader
+        dst-repo: arvatoaws-labs/prometheus-config-reloader-hardened
     # alpine
     - name: Mirror alpine-base
       if: always()
