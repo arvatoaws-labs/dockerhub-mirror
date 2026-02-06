@@ -124,7 +124,7 @@ jobs:
         src-registry: dhi.io
         src-repo: keda-admission-webhooks
         dst-repo: arvatoaws-labs/keda-admission-webhooks-hardened
-    #kube-prometheus-stack
+    # kube-prometheus-stack
     - name: Mirror kubectl
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -165,14 +165,14 @@ jobs:
         src-registry: dhi.io
         src-repo: prometheus-operator
         dst-repo: arvatoaws-labs/prometheus-operator-hardened
-    - name: Mirror prometheus-node-exporter
+    - name: Mirror node-exporter
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
-        src-repo: prometheus-node-exporter
-        dst-repo: arvatoaws-labs/prometheus-node-exporter-hardened
+        src-repo: node-exporter
+        dst-repo: arvatoaws-labs/node-exporter-hardened
     - name: Mirror kube-rbac-proxy
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
