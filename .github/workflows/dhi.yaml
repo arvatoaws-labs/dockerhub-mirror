@@ -221,6 +221,15 @@ jobs:
         src-registry: dhi.io
         src-repo: prometheus-config-reloader
         dst-repo: arvatoaws-labs/prometheus-config-reloader-hardened
+    # kubernetes-cluster-autoscaler
+    - name: Mirror kubernetes-cluster-autoscaler
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kubernetes-cluster-autoscaler
+        dst-repo: arvatoaws-labs/kubernetes-cluster-autoscaler-hardened
     # alpine
     - name: Mirror alpine-base
       if: always()
