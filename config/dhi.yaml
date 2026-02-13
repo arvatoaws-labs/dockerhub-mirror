@@ -9,8 +9,18 @@ sync:
   type: repository
   tags:
     allow:
-    # DHI has clear rules for tagging, meaning we can use a single regex for all DHI images.
-    - "^\\d+(?:\\.\\d+){0,2}(?:-alpine\\d+(?:\\.\\d+)*)?(?:-(?:fips|stig))?$"
+    - "\\d+"
+    - "\\d+.\\d+"
+    - "\\d+.\\d+.\\d+"
+    - "\\d+-alpine"
+    - "\\d+.\\d+-alpine"
+    - "\\d+.\\d+.\\d+-alpine"
+    - "\\d+-alpine\\d+"
+    - "\\d+.\\d+-alpine\\d+"
+    - "\\d+.\\d+.\\d+-alpine\\d+"
+    - "\\d+-alpine\\d+.\\d+"
+    - "\\d+.\\d+-alpine\\d+.\\d+"
+    - "\\d+.\\d+.\\d+-alpine\\d+.\\d+"
     deny:
     - ".*-dev$"
     - ".*-fips$"
