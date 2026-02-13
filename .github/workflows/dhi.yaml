@@ -31,7 +31,6 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    # cert-manager
     - name: Mirror cert-manager-controller
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -64,7 +63,6 @@ jobs:
         src-registry: dhi.io
         src-repo: cert-manager-webhook
         dst-repo: arvatoaws-labs/cert-manager-webhook-hardened
-    # external-dns
     - name: Mirror external-dns
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -73,7 +71,6 @@ jobs:
         src-registry: dhi.io
         src-repo: external-dns
         dst-repo: arvatoaws-labs/external-dns-hardened
-    # metrics-server
     - name: Mirror metrics-server
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -82,7 +79,6 @@ jobs:
         src-registry: dhi.io
         src-repo: metrics-server
         dst-repo: arvatoaws-labs/metrics-server-hardened
-    # traefik
     - name: Mirror traefik
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -91,7 +87,6 @@ jobs:
         src-registry: dhi.io
         src-repo: traefik
         dst-repo: arvatoaws-labs/traefik-hardened
-    # keda
     - name: Mirror keda
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -116,7 +111,6 @@ jobs:
         src-registry: dhi.io
         src-repo: keda-admission-webhooks
         dst-repo: arvatoaws-labs/keda-admission-webhooks-hardened
-    # alpine
     - name: Mirror alpine-base
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -125,7 +119,6 @@ jobs:
         src-registry: dhi.io
         src-repo: alpine-base
         dst-repo: arvatoaws-labs/alpine-base-hardened
-    # busybox
     - name: Mirror busybox
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -134,7 +127,6 @@ jobs:
         src-registry: dhi.io
         src-repo: busybox
         dst-repo: arvatoaws-labs/busybox-hardened
-    # curl
     - name: Mirror curl
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -143,7 +135,6 @@ jobs:
         src-registry: dhi.io
         src-repo: curl
         dst-repo: arvatoaws-labs/curl-hardened
-    # golang
     - name: Mirror golang
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -152,7 +143,6 @@ jobs:
         src-registry: dhi.io
         src-repo: golang
         dst-repo: arvatoaws-labs/golang-hardened
-    # grafana
     - name: Mirror grafana
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -161,7 +151,6 @@ jobs:
         src-registry: dhi.io
         src-repo: grafana
         dst-repo: arvatoaws-labs/grafana-hardened
-    # liquibase
     - name: Mirror liquibase
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -170,7 +159,6 @@ jobs:
         src-registry: dhi.io
         src-repo: liquibase
         dst-repo: arvatoaws-labs/liquibase-hardened
-    # nginx-exporter
     - name: Mirror nginx-exporter
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -179,7 +167,6 @@ jobs:
         src-registry: dhi.io
         src-repo: nginx-exporter
         dst-repo: arvatoaws-labs/nginx-exporter-hardened
-    # nginx
     - name: Mirror nginx
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -188,7 +175,6 @@ jobs:
         src-registry: dhi.io
         src-repo: nginx
         dst-repo: arvatoaws-labs/nginx-hardened
-    # nodejs
     - name: Mirror nodejs
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -197,7 +183,6 @@ jobs:
         src-registry: dhi.io
         src-repo: node
         dst-repo: arvatoaws-labs/node-hardened
-    # php
     - name: Mirror php
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -206,7 +191,6 @@ jobs:
         src-registry: dhi.io
         src-repo: php
         dst-repo: arvatoaws-labs/php-hardened
-    # python
     - name: Mirror python
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -215,7 +199,6 @@ jobs:
         src-registry: dhi.io
         src-repo: python
         dst-repo: arvatoaws-labs/python-hardened
-    # rust
     - name: Mirror rust
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -224,7 +207,6 @@ jobs:
         src-registry: dhi.io
         src-repo: rust
         dst-repo: arvatoaws-labs/rust-hardened
-    # velero-plugin-for-aws
     - name: Mirror velero-plugin-for-aws
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
@@ -233,7 +215,6 @@ jobs:
         src-registry: dhi.io
         src-repo: velero-plugin-for-aws
         dst-repo: arvatoaws-labs/velero-plugin-for-aws-hardened
-    # velero
     - name: Mirror velero
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror@main
