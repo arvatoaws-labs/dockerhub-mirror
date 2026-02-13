@@ -10,6 +10,6 @@ sync:
   #not images, so we just make sure only semver charts are taken, without release candidates
   tags:
     allow:
-      - "^\\d+\\.\\d+\\.\\d+$"
+    - "^\\d+\\.\\d+\\.\\d+$"
     deny:
-      - ".*rc.*"
+    - ".*rc.*"
