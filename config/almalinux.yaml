@@ -1,12 +1,3 @@
-version: 1
-creds:
-# - registry: "{{env \"SRC_REGISTRY\"}}"
-#   user: "{{env \"SRC_USER\"}}"
-#   pass: "{{env \"SRC_PASS\"}}"
-- registry: "{{env \"DST_REGISTRY\"}}"
-  user: "{{env \"DST_USER\"}}"
-  pass: "{{env \"DST_PASS\"}}"
-
 defaults:
   ratelimit:
     min: 20
@@ -19,7 +10,5 @@ sync:
   tags:
     allow:
     - "latest"
-    - "10"
-    - "10.\\d+"
-    - "9"
-    - "9.\\d+"
+    - "\\d+"
+    - "\\d+.\\d+"
