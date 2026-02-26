@@ -342,3 +342,28 @@ jobs:
         src-registry: dhi.io
         src-repo: external-secrets
         dst-repo: arvatoaws-labs/external-secrets-hardened
+    # virtual-pod-autoscaler
+    - name: Mirror vertical-pod-autoscaler-admission-controller
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: vpa-admission-controller
+        dst-repo: arvatoaws-labs/vpa-admission-controller-hardened
+    - name: Mirror vertical-pod-autoscaler-recommender
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: vpa-recommender
+        dst-repo: arvatoaws-labs/vpa-recommender-hardened
+    - name: Mirror vertical-pod-autoscaler-updater
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: vpa-updater
+        dst-repo: arvatoaws-labs/vpa-updater-hardened
