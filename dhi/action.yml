@@ -1,0 +1,99 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
+name: 'DockerHub mirror'
+description: 'GitHub Action to mirror a DockerHub repo to another registry'
+author: 'arvatoaws-labs'
+branding:
+  color: 'green'
+  icon: 'copy'
+
+inputs:
+
+  src-username:
+    description: 'Source username'
+    required: true
+  src-password:
+    description: 'Source password'
+    required: true
+  src-registry:
+    description: 'Source registry (eg. docker.io)'
+    required: true
+    default: docker.io
+  src-repo:
+    description: 'Source repo (eg. library/busybox)'
+    required: true
+
+  dst-username:
+    description: 'Destination username'
+    required: true
+  dst-password:
+    description: 'Destination password'
+    required: true
+  dst-registry:
+    description: 'Destination registry (eg. ghcr.io)'
+    required: true
+    default: ghcr.io
+  dst-repo:
+    description: 'Destination repo (eg. myrepo/busybox)'
+    required: true
+
+  config:
+    description: 'configfile to use'
+    required: true
+    default: config/generic.yaml
+
+  loglevel:
+    description: 'loglevel to use (debug, info, warn, error, fatal, panic)'
+    required: true
+    default: info
+
+runs:
+  using: 'composite'
+  steps:
+  - run: |
+      set -e
+
+      export SRC_USER=${{ inputs.src-username }}
+      export SRC_PASS='${{ inputs.src-password }}'
+      export SRC_REGISTRY=${{ inputs.src-registry }}
+      export SRC_REPO=${{ inputs.src-repo }}
+      export DST_USER=${{ inputs.dst-username }}
+      export DST_PASS='${{ inputs.dst-password }}'
+      export DST_REPO=${{ inputs.dst-repo }}
+      export DST_REGISTRY=${{ inputs.dst-registry }}
+      export CONFIG=${{ inputs.config }}
+      export LOGLEVEL=${{ inputs.loglevel }}
+
+      wget -q https://github.com/regclient/regclient/releases/download/v0.11.1/regsync-linux-arm64 && chmod 755 regsync-linux-arm64
+      wget -q https://github.com/regclient/regclient/releases/download/v0.11.1/regctl-linux-arm64  && chmod 755 regctl-linux-arm64
+
+      echo "::group::Version"
+      uname -a
+      cat /etc/os-release
+      lscpu
+      ./regsync-linux-arm64 version
+      echo "::endgroup"
+
+      echo "::group::Config"
+      cat $CONFIG
+      echo "::endgroup"
+
+      echo "::group::Checking"
+      ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL check
+      echo "::endgroup"
+
+      echo "::group::Syncing"
+      ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL once
+      echo "::endgroup"
+
+      echo "::group::Tagging"
+      existing_tags=$(./regctl tag ls ${DST_REGISTRY}/${DST_REPO})
+      for tag in $existing_tags; do
+        if [[ "$tag" != v* ]]; then
+          if ! echo "$existing_tags" | grep -q "^v$tag$"; then
+            ./regctl tag copy ${DST_REGISTRY}/${DST_REPO}:$tag ${DST_REGISTRY}/${DST_REPO}:v$tag
+          fi
+        fi
+      done
+      echo "::endgroup"
+
+    shell: bash
