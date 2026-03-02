@@ -64,7 +64,7 @@ runs:
       export LOGLEVEL=${{ inputs.loglevel }}
 
       wget -q https://github.com/regclient/regclient/releases/download/v0.11.1/regsync-linux-arm64 && chmod 755 regsync-linux-arm64
-      wget -q https://github.com/regclient/regclient/releases/download/v0.11.1/regctl-linux-arm64  && chmod 755 regctl-linux-arm64
+      wget -q https://github.com/regclient/regclient/releases/download/v0.11.1/regctl-linux-arm64 && chmod 755 regctl-linux-arm64
 
       echo "::group::Version"
       uname -a
@@ -86,11 +86,11 @@ runs:
       echo "::endgroup"
 
       echo "::group::Tagging"
-      existing_tags=$(./regctl tag ls ${DST_REGISTRY}/${DST_REPO})
+      existing_tags=$(./regctl-linux-arm64 tag ls ${DST_REGISTRY}/${DST_REPO})
       for tag in $existing_tags; do
         if [[ "$tag" != v* ]]; then
           if ! echo "$existing_tags" | grep -q "^v$tag$"; then
-            ./regctl tag copy ${DST_REGISTRY}/${DST_REPO}:$tag ${DST_REGISTRY}/${DST_REPO}:v$tag
+            ./regctl-linux-arm64 tag copy ${DST_REGISTRY}/${DST_REPO}:$tag ${DST_REGISTRY}/${DST_REPO}:v$tag
           fi
         fi
       done
