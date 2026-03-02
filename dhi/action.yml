@@ -90,7 +90,7 @@ runs:
       for tag in $existing_tags; do
         if [[ "$tag" != v* ]]; then
           if ! echo "$existing_tags" | grep -q "^v$tag$"; then
-            ./regctl-linux-arm64 tag copy ${DST_REGISTRY}/${DST_REPO}:$tag ${DST_REGISTRY}/${DST_REPO}:v$tag
+            ./regctl-linux-arm64 image copy ${DST_REGISTRY}/${DST_REPO}:$tag ${DST_REGISTRY}/${DST_REPO}:v$tag
           fi
         fi
       done
