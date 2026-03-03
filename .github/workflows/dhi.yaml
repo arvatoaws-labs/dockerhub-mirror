@@ -32,7 +32,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Mirror cert-manager-controller
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -40,7 +40,7 @@ jobs:
         dst-repo: arvatoaws-labs/cert-manager-controller-hardened
     - name: Mirror cert-manager-cainjector
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -48,7 +48,7 @@ jobs:
         dst-repo: arvatoaws-labs/cert-manager-cainjector-hardened
     - name: Mirror cert-manager-acmesolver
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -56,7 +56,7 @@ jobs:
         dst-repo: arvatoaws-labs/cert-manager-acmesolver-hardened
     - name: Mirror cert-manager-webhook
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -64,7 +64,7 @@ jobs:
         dst-repo: arvatoaws-labs/cert-manager-webhook-hardened
     - name: Mirror cert-manager-startupapicheck
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -72,7 +72,7 @@ jobs:
         dst-repo: arvatoaws-labs/cert-manager-startupapicheck-hardened
     - name: Mirror external-dns
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -80,7 +80,7 @@ jobs:
         dst-repo: arvatoaws-labs/external-dns-hardened
     - name: Mirror metrics-server
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -88,7 +88,7 @@ jobs:
         dst-repo: arvatoaws-labs/metrics-server-hardened
     - name: Mirror traefik
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -96,7 +96,7 @@ jobs:
         dst-repo: arvatoaws-labs/traefik-hardened
     - name: Mirror keda
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -104,7 +104,7 @@ jobs:
         dst-repo: arvatoaws-labs/keda-hardened
     - name: Mirror keda-metrics-apiserver
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -112,7 +112,7 @@ jobs:
         dst-repo: arvatoaws-labs/keda-metrics-apiserver-hardened
     - name: Mirror keda-admission-webhooks
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -120,7 +120,7 @@ jobs:
         dst-repo: arvatoaws-labs/keda-admission-webhooks-hardened
     - name: Mirror kubectl
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -128,7 +128,7 @@ jobs:
         dst-repo: arvatoaws-labs/kubectl-hardened
     - name: Mirror thanos
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -136,7 +136,7 @@ jobs:
         dst-repo: arvatoaws-labs/thanos-hardened
     - name: Mirror prometheus
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -144,7 +144,7 @@ jobs:
         dst-repo: arvatoaws-labs/prometheus-hardened
     - name: Mirror alertmanager
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -152,7 +152,7 @@ jobs:
         dst-repo: arvatoaws-labs/alertmanager-hardened
     - name: Mirror prometheus-operator
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -160,7 +160,7 @@ jobs:
         dst-repo: arvatoaws-labs/prometheus-operator-hardened
     - name: Mirror node-exporter
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -168,7 +168,7 @@ jobs:
         dst-repo: arvatoaws-labs/node-exporter-hardened
     - name: Mirror kube-rbac-proxy
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -176,7 +176,7 @@ jobs:
         dst-repo: arvatoaws-labs/kube-rbac-proxy-hardened
     - name: Mirror kube-state-metrics
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -184,7 +184,7 @@ jobs:
         dst-repo: arvatoaws-labs/kube-state-metrics-hardened
     - name: Mirror grafana
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -192,7 +192,7 @@ jobs:
         dst-repo: arvatoaws-labs/grafana-hardened
     - name: Mirror k8s-sidecar
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -200,7 +200,7 @@ jobs:
         dst-repo: arvatoaws-labs/k8s-sidecar-hardened
     - name: Mirror kube-webhook-certgen
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -208,7 +208,7 @@ jobs:
         dst-repo: arvatoaws-labs/kube-webhook-certgen-hardened
     - name: Mirror prometheus-config-reloader
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -216,7 +216,7 @@ jobs:
         dst-repo: arvatoaws-labs/prometheus-config-reloader-hardened
     - name: Mirror kubernetes-cluster-autoscaler
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -224,7 +224,7 @@ jobs:
         dst-repo: arvatoaws-labs/kubernetes-cluster-autoscaler-hardened
     - name: Mirror alpine-base
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -232,7 +232,7 @@ jobs:
         dst-repo: arvatoaws-labs/alpine-base-hardened
     - name: Mirror busybox
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -240,7 +240,7 @@ jobs:
         dst-repo: arvatoaws-labs/busybox-hardened
     - name: Mirror curl
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -248,7 +248,7 @@ jobs:
         dst-repo: arvatoaws-labs/curl-hardened
     - name: Mirror golang
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -256,7 +256,7 @@ jobs:
         dst-repo: arvatoaws-labs/golang-hardened
     - name: Mirror grafana
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -264,7 +264,7 @@ jobs:
         dst-repo: arvatoaws-labs/grafana-hardened
     - name: Mirror liquibase
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -272,7 +272,7 @@ jobs:
         dst-repo: arvatoaws-labs/liquibase-hardened
     - name: Mirror nginx-exporter
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -280,7 +280,7 @@ jobs:
         dst-repo: arvatoaws-labs/nginx-exporter-hardened
     - name: Mirror nginx
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -288,7 +288,7 @@ jobs:
         dst-repo: arvatoaws-labs/nginx-hardened
     - name: Mirror nodejs
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -296,7 +296,7 @@ jobs:
         dst-repo: arvatoaws-labs/node-hardened
     - name: Mirror php
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -304,7 +304,7 @@ jobs:
         dst-repo: arvatoaws-labs/php-hardened
     - name: Mirror python
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -312,7 +312,7 @@ jobs:
         dst-repo: arvatoaws-labs/python-hardened
     - name: Mirror rust
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -320,7 +320,7 @@ jobs:
         dst-repo: arvatoaws-labs/rust-hardened
     - name: Mirror velero-plugin-for-aws
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -328,7 +328,7 @@ jobs:
         dst-repo: arvatoaws-labs/velero-plugin-for-aws-hardened
     - name: Mirror velero
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -336,7 +336,7 @@ jobs:
         dst-repo: arvatoaws-labs/velero-hardened
     - name: Mirror external-secrets
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -345,7 +345,7 @@ jobs:
     # virtual-pod-autoscaler
     - name: Mirror vertical-pod-autoscaler-admission-controller
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -353,7 +353,7 @@ jobs:
         dst-repo: arvatoaws-labs/vpa-admission-controller-hardened
     - name: Mirror vertical-pod-autoscaler-recommender
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -361,7 +361,7 @@ jobs:
         dst-repo: arvatoaws-labs/vpa-recommender-hardened
     - name: Mirror vertical-pod-autoscaler-updater
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -370,7 +370,7 @@ jobs:
     # trivy
     - name: Mirror trivy
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
@@ -378,7 +378,7 @@ jobs:
         dst-repo: arvatoaws-labs/trivy-hardened
     - name: Mirror trivy-operator
       if: always()
-      uses: arvatoaws-labs/dockerhub-mirror@main
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
         config: config/dhi.yaml
         src-registry: dhi.io
