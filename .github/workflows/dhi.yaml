@@ -30,6 +30,22 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Mirror kyverno-policy-reporter
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-policy-reporter
+        dst-repo: arvatoaws-labs/kyverno-policy-reporter-hardened
+    - name: Mirror kyverno-policy-reporter-ui
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-policy-reporter-ui
+        dst-repo: arvatoaws-labs/kyverno-policy-reporter-ui-hardened
     - name: Mirror cert-manager-controller
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
