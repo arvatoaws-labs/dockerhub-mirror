@@ -21,6 +21,9 @@ sync:
     - "\\d+-alpine\\d+.\\d+"
     - "\\d+.\\d+-alpine\\d+.\\d+"
     - "\\d+.\\d+.\\d+-alpine\\d+.\\d+"
+    - "\\d+-dev"
+    - "\\d+.\\d+-dev"
+    - "\\d+.\\d+.\\d+-dev"
     deny:
     - ".*-fips$"
     - "^latest$"
