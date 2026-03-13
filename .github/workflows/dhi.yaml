@@ -412,7 +412,7 @@ jobs:
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
-        config: config/dhi.yaml
+        config: config/dhi-dev.yaml
         src-registry: dhi.io
         src-repo: trivy
         dst-repo: arvatoaws-labs/trivy-hardened

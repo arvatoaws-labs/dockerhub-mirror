@@ -1,0 +1,26 @@
+defaults:
+  ratelimit:
+    min: 20
+    retry: 1m
+  parallel: 2
+sync:
+- source: "{{env \"SRC_REGISTRY\"}}/{{env \"SRC_REPO\"}}"
+  target: "{{env \"DST_REGISTRY\"}}/{{env \"DST_REPO\"}}"
+  type: repository
+  tags:
+    allow:
+    - "\\d+"
+    - "\\d+.\\d+"
+    - "\\d+.\\d+.\\d+"
+    - "\\d+-alpine"
+    - "\\d+.\\d+-alpine"
+    - "\\d+.\\d+.\\d+-alpine"
+    - "\\d+-alpine\\d+"
+    - "\\d+.\\d+-alpine\\d+"
+    - "\\d+.\\d+.\\d+-alpine\\d+"
+    - "\\d+-alpine\\d+.\\d+"
+    - "\\d+.\\d+-alpine\\d+.\\d+"
+    - "\\d+.\\d+.\\d+-alpine\\d+.\\d+"
+    deny:
+    - ".*-fips$"
+    - "^latest$"
