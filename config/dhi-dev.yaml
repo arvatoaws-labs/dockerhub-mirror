@@ -24,6 +24,9 @@ sync:
     - "\\d+-dev"
     - "\\d+.\\d+-dev"
     - "\\d+.\\d+.\\d+-dev"
+    - "\\d+-compat"
+    - "\\d+.\\d+-compat"
+    - "\\d+.\\d+.\\d+-compat"
     deny:
     - ".*-fips$"
     - "^latest$"

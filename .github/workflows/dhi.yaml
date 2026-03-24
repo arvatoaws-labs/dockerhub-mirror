@@ -442,3 +442,76 @@ jobs:
         src-registry: dhi.io
         src-repo: opencost
         dst-repo: arvatoaws-labs/opencost-hardened
+    # kyverno
+    - name: Mirror kyverno
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno
+        dst-repo: arvatoaws-labs/kyverno-hardened
+    - name: Mirror kyverno-cli
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-cli
+        dst-repo: arvatoaws-labs/kyverno-cli-hardened
+    - name: Mirror kyverno-init
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-init
+        dst-repo: arvatoaws-labs/kyverno-init-hardened
+    - name: Mirror kyverno-readiness-checker
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-readiness-checker
+        dst-repo: arvatoaws-labs/kyverno-readiness-checker-hardened
+    - name: Mirror kyverno-reports-controller
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-reports-controller
+        dst-repo: arvatoaws-labs/kyverno-reports-controller-hardened
+    - name: Mirror kyverno-background-controller
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-background-controller
+        dst-repo: arvatoaws-labs/kyverno-background-controller-hardened
+    - name: Mirror kyverno-cleanup-controller
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-cleanup-controller
+        dst-repo: arvatoaws-labs/kyverno-cleanup-controller-hardened
+    - name: Mirror kyverno-policy-reporter
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-policy-reporter
+        dst-repo: arvatoaws-labs/kyverno-policy-reporter-hardened
+    - name: Mirror kyverno-policy-reporter-ui
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-policy-reporter-ui
+        dst-repo: arvatoaws-labs/kyverno-policy-reporter-ui-hardened
