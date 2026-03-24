@@ -425,7 +425,7 @@ jobs:
         src-repo: trivy-operator
         dst-repo: arvatoaws-labs/trivy-operator-hardened
     # oauth2-proxy
-    - name: Mirror trivy
+    - name: Mirror oauth2-proxy
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
@@ -433,3 +433,12 @@ jobs:
         src-registry: dhi.io
         src-repo: oauth2-proxy
         dst-repo: arvatoaws-labs/oauth2-proxy-hardened
+    # opencost
+    - name: Mirror opencost
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: opencost
+        dst-repo: arvatoaws-labs/opencost-hardened
