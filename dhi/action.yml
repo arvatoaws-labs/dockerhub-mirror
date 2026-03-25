@@ -82,7 +82,7 @@ runs:
       echo "::endgroup"
 
       echo "::group::Syncing"
-      ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL once --force
+      ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL once
       echo "::endgroup"
 
       echo "::group::Tagging"

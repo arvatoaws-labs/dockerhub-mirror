@@ -25,3 +25,4 @@ sync:
     - ".*-dev$"
     - ".*-fips$"
     - "^latest$"
+  forceRecursive: true
