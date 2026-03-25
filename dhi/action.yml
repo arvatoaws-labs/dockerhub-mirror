@@ -44,7 +44,7 @@ inputs:
   loglevel:
     description: 'loglevel to use (debug, info, warn, error, fatal, panic)'
     required: true
-    default: info
+    default: debug
 
 runs:
   using: 'composite'
