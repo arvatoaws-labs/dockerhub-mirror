@@ -30,3 +30,4 @@ sync:
     deny:
     - ".*-fips$"
     - "^latest$"
+  forceRecursive: true
