@@ -89,7 +89,10 @@ runs:
       existing_tags=$(./regctl-linux-arm64 tag ls ${DST_REGISTRY}/${DST_REPO})
       for tag in $existing_tags; do
         if [[ "$tag" != v* ]]; then
-          if ! echo "$existing_tags" | grep -q "^v$tag$"; then
+          src_digest=$(./regctl-linux-arm64 image digest ${DST_REGISTRY}/${DST_REPO}:$tag)
+          tgt_digest=$(./regctl-linux-arm64 image digest ${DST_REGISTRY}/${DST_REPO}:v$tag 2>/dev/null || echo "")
+
+          if [[ "$src_digest" != "$tgt_digest" ]]; then
             ./regctl-linux-arm64 image copy ${DST_REGISTRY}/${DST_REPO}:$tag ${DST_REGISTRY}/${DST_REPO}:v$tag
           fi
         fi
