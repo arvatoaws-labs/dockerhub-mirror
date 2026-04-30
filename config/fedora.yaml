@@ -10,5 +10,6 @@ sync:
   tags:
     allow:
     - "latest"
+    - "44"
     - "43"
     - "42"
