@@ -515,3 +515,35 @@ jobs:
         src-registry: dhi.io
         src-repo: kyverno-policy-reporter-ui
         dst-repo: arvatoaws-labs/kyverno-policy-reporter-ui-hardened
+    - name: Mirror fluxcd-helm-controller
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: fluxcd-helm-controller
+        dst-repo: arvatoaws-labs/fluxcd-helm-controller-hardened
+    - name: Mirror fluxcd-kustomize-controller
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: fluxcd-kustomize-controller
+        dst-repo: arvatoaws-labs/fluxcd-kustomize-controller-hardened
+    - name: Mirror fluxcd-notification-controller
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: fluxcd-notification-controller
+        dst-repo: arvatoaws-labs/fluxcd-notification-controller-hardened
+    - name: Mirror fluxcd-source-controller
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: fluxcd-source-controller
+        dst-repo: arvatoaws-labs/fluxcd-source-controller-hardened
