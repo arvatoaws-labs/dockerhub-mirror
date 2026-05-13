@@ -30,7 +30,6 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    # cert-manager
     - name: Mirror cert-manager chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -38,7 +37,6 @@ jobs:
         src-registry: dhi.io
         src-repo: cert-manager-chart
         dst-repo: arvatoaws-labs/cert-manager-chart-hardened
-    # external-dns
     - name: Mirror external-dns chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -46,7 +44,6 @@ jobs:
         src-registry: dhi.io
         src-repo: external-dns-chart
         dst-repo: arvatoaws-labs/external-dns-chart-hardened
-    # metrics-server
     - name: Mirror metrics-server chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -54,7 +51,6 @@ jobs:
         src-registry: dhi.io
         src-repo: metrics-server-chart
         dst-repo: arvatoaws-labs/metrics-server-chart-hardened
-    # traefik
     - name: Mirror traefik chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -62,7 +58,6 @@ jobs:
         src-registry: dhi.io
         src-repo: traefik-chart
         dst-repo: arvatoaws-labs/traefik-chart-hardened
-    # external-secrets
     - name: Mirror external-secrets chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -70,7 +65,6 @@ jobs:
         src-registry: dhi.io
         src-repo: external-secrets-chart
         dst-repo: arvatoaws-labs/external-secrets-chart-hardened
-    # kubernetes-cluster-autoscaler
     - name: Mirror kubernetes-cluster-autoscaler chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -78,3 +72,10 @@ jobs:
         src-registry: dhi.io
         src-repo: kubernetes-cluster-autoscaler-chart
         dst-repo: arvatoaws-labs/kubernetes-cluster-autoscaler-chart-hardened
+    - name: Mirror kube-prometheus-stack-chart chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: kube-prometheus-stack-chart
+        dst-repo: arvatoaws-labs/kube-prometheus-stack-chart-hardened
