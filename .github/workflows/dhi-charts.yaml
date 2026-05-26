@@ -43,7 +43,8 @@ jobs:
         config: config/chart-hardened.yaml
         src-registry: dhi.io
         src-repo: external-dns-chart
-        dst-repo: arvatoaws-labs/external-dns-chart-hardened
+        dst-repo: arvatoaws-labs/external-dns-chart
+    # metrics-server
     - name: Mirror metrics-server chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
