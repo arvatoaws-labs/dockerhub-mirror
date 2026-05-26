@@ -36,7 +36,7 @@ jobs:
         config: config/chart-hardened.yaml
         src-registry: dhi.io
         src-repo: cert-manager-chart
-        dst-repo: arvatoaws-labs/cert-manager-chart-hardened
+        dst-repo: arvatoaws-labs/cert-manager-chart
     - name: Mirror external-dns chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
@@ -51,32 +51,32 @@ jobs:
         config: config/chart-hardened.yaml
         src-registry: dhi.io
         src-repo: metrics-server-chart
-        dst-repo: arvatoaws-labs/metrics-server-chart-hardened
+        dst-repo: arvatoaws-labs/metrics-server-chart
     - name: Mirror traefik chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/chart-hardened.yaml
         src-registry: dhi.io
         src-repo: traefik-chart
-        dst-repo: arvatoaws-labs/traefik-chart-hardened
+        dst-repo: arvatoaws-labs/traefik-chart
     - name: Mirror external-secrets chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/chart-hardened.yaml
         src-registry: dhi.io
         src-repo: external-secrets-chart
-        dst-repo: arvatoaws-labs/external-secrets-chart-hardened
+        dst-repo: arvatoaws-labs/external-secrets-chart
     - name: Mirror kubernetes-cluster-autoscaler chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/chart-hardened.yaml
         src-registry: dhi.io
         src-repo: kubernetes-cluster-autoscaler-chart
-        dst-repo: arvatoaws-labs/kubernetes-cluster-autoscaler-chart-hardened
+        dst-repo: arvatoaws-labs/kubernetes-cluster-autoscaler-chart
     - name: Mirror kube-prometheus-stack-chart chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
         config: config/chart-hardened.yaml
         src-registry: dhi.io
         src-repo: kube-prometheus-stack-chart
-        dst-repo: arvatoaws-labs/kube-prometheus-stack-chart-hardened
+        dst-repo: arvatoaws-labs/kube-prometheus-stack-chart
