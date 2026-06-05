@@ -12,7 +12,6 @@ sync:
     - "\\d+"
     - "\\d+.\\d+"
     - "\\d+.\\d+.\\d+"
-
     - "\\d+-alpine"
     - "\\d+.\\d+-alpine"
     - "\\d+.\\d+.\\d+-alpine"
@@ -22,7 +21,6 @@ sync:
     - "\\d+-alpine\\d+.\\d+"
     - "\\d+.\\d+-alpine\\d+.\\d+"
     - "\\d+.\\d+.\\d+-alpine\\d+.\\d+"
-	
     - "\\d+-debian"
     - "\\d+.\\d+-debian"
     - "\\d+.\\d+.\\d+-debian"
