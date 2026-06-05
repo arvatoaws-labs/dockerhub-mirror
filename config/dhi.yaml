@@ -21,9 +21,9 @@ sync:
     - "\\d+-alpine\\d+.\\d+"
     - "\\d+.\\d+-alpine\\d+.\\d+"
     - "\\d+.\\d+.\\d+-alpine\\d+.\\d+"
-    - "\\d+-debian"
-    - "\\d+.\\d+-debian"
-    - "\\d+.\\d+.\\d+-debian"
+    # - "\\d+-debian" # causes incorrect tag expansion
+    # - "\\d+.\\d+-debian"
+    # - "\\d+.\\d+.\\d+-debian"
     - "\\d+-debian\\d+"
     - "\\d+.\\d+-debian\\d+"
     - "\\d+.\\d+.\\d+-debian\\d+"
