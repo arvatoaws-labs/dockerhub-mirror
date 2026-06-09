@@ -80,3 +80,67 @@ jobs:
         src-registry: dhi.io
         src-repo: kube-prometheus-stack-chart
         dst-repo: arvatoaws-labs/kube-prometheus-stack-chart
+    ##
+    - name: Mirror keda chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: keda-chart
+        dst-repo: arvatoaws-labs/keda-chart
+    - name: Mirror karpenter chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: karpenter-chart
+        dst-repo: arvatoaws-labs/karpenter-chart
+    - name: Mirror keycloak chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: keycloak-chart
+        dst-repo: arvatoaws-labs/keycloak-chart
+    - name: Mirror kyverno chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-chart
+        dst-repo: arvatoaws-labs/kyverno-chart
+    - name: Mirror kyverno-policy-reporter chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: kyverno-policy-reporter-chart
+        dst-repo: arvatoaws-labs/kyverno-policy-reporter-chart
+    - name: Mirror opencost chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: opencost-chart
+        dst-repo: arvatoaws-labs/opencost-chart
+    - name: Mirror kube-prometheus-stack chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: kube-prometheus-stack-chart
+        dst-repo: arvatoaws-labs/kube-prometheus-stack-chart
+    - name: Mirror stakater-reloader chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: stakater-reloader-chart
+        dst-repo: arvatoaws-labs/stakater-reloader-chart
+    - name: Mirror trivy-operator chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: trivy-operator-chart
+        dst-repo: arvatoaws-labs/trivy-operator-chart
