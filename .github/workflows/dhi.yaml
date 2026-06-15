@@ -30,6 +30,14 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Mirror opencost-ui
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: opencost-ui
+        dst-repo: arvatoaws-labs/opencost-ui-hardened
     # kyverno
     - name: Mirror kyverno
       if: always()
@@ -476,6 +484,14 @@ jobs:
         src-registry: dhi.io
         src-repo: opencost
         dst-repo: arvatoaws-labs/opencost-hardened
+    # - name: Mirror opencost-ui
+    #   if: always()
+    #   uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+    #   with:
+    #     config: config/dhi.yaml
+    #     src-registry: dhi.io
+    #     src-repo: opencost-ui
+    #     dst-repo: arvatoaws-labs/opencost-ui-hardened
     - name: Mirror fluxcd-helm-controller
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
