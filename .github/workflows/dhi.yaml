@@ -30,6 +30,14 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Mirror keycloak
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: keycloak
+        dst-repo: arvatoaws-labs/keycloak-hardened
     - name: Mirror skatater-reloader
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
