@@ -30,15 +30,6 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Mirror traefik
-      if: always()
-      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
-      with:
-        config: config/dhi-traefik.yaml
-        src-registry: dhi.io
-        src-repo: traefik
-        dst-repo: arvatoaws-labs/traefik-hardened
     - name: Mirror keycloak
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
@@ -185,6 +176,14 @@ jobs:
         src-registry: dhi.io
         src-repo: metrics-server
         dst-repo: arvatoaws-labs/metrics-server-hardened
+    - name: Mirror traefik
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi-traefik.yaml
+        src-registry: dhi.io
+        src-repo: traefik
+        dst-repo: arvatoaws-labs/traefik-hardened
     - name: Mirror keda
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
