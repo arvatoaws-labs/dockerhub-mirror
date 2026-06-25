@@ -180,7 +180,7 @@ jobs:
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
-        config: config/dhi-traefik.yaml
+        config: config/dhi.yaml
         src-registry: dhi.io
         src-repo: traefik
         dst-repo: arvatoaws-labs/traefik-hardened
