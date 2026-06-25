@@ -30,6 +30,7 @@ sync:
     - "\\d+-debian\\d+.\\d+"
     - "\\d+.\\d+-debian\\d+.\\d+"
     - "\\d+.\\d+.\\d+-debian\\d+.\\d+"
+    - ".*-fips$"
     deny:
     - ".*-dev$"
     - "^latest$"
