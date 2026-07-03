@@ -30,6 +30,14 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Mirror karpenter
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: karpenter
+        dst-repo: arvatoaws-labs/karpenter-hardened
     - name: Mirror keycloak
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
