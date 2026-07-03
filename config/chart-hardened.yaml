@@ -13,3 +13,4 @@ sync:
     - "^\\d+\\.\\d+\\.\\d+$"
     deny:
     - ".*rc.*"
+  forceRecursive: true
