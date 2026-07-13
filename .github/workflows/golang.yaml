@@ -14,7 +14,7 @@ jobs:
     runs-on: arvato
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Get Current Branch Name
       id: get_branch
       run: git rev-parse --abbrev-ref HEAD
