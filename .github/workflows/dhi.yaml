@@ -508,6 +508,14 @@ jobs:
         src-registry: dhi.io
         src-repo: opencost-ui
         dst-repo: arvatoaws-labs/opencost-ui-hardened
+    - name: Mirror flux cli
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi-dev.yaml
+        src-registry: dhi.io
+        src-repo: flux-cli
+        dst-repo: arvatoaws-labs/flux-cli-hardened
     - name: Mirror fluxcd-helm-controller
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main

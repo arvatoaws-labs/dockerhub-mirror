@@ -30,6 +30,13 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Mirror flux chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: flux-chart
+        dst-repo: arvatoaws-labs/flux-chart
     - name: Mirror cert-manager chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
