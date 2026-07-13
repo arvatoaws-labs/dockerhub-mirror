@@ -548,3 +548,19 @@ jobs:
         src-registry: dhi.io
         src-repo: fluxcd-source-controller
         dst-repo: arvatoaws-labs/fluxcd-source-controller-hardened
+    - name: Mirror fluxcd-image-automation
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: fluxcd-image-automation
+        dst-repo: arvatoaws-labs/fluxcd-image-automation-hardened
+    - name: Mirror fluxcd-image-reflector
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: fluxcd-image-reflector
+        dst-repo: arvatoaws-labs/fluxcd-image-reflector-hardened
