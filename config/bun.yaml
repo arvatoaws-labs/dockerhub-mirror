@@ -1,0 +1,21 @@
+defaults:
+  ratelimit:
+    min: 20
+    retry: 1m
+  parallel: 2
+sync:
+- source: "{{env \"SRC_REGISTRY\"}}/{{env \"SRC_REPO\"}}"
+  target: "{{env \"DST_REGISTRY\"}}/{{env \"DST_REPO\"}}"
+  type: repository
+  tags:
+    allow:
+    - "canary-alpine"
+    - "canary-distroless"
+    - "alpine"
+    - "distroless"
+    - "\\d+\\-alpine"
+    - "\\d+\\-distroless"
+    - "\\d+\\.\\d+\\-alpine"
+    - "\\d+\\.\\d+\\-distroless"
+    - "\\d+\\.\\d+\\.\\d+-alpine"
+    - "\\d+\\.\\d+\\.\\d+-distroless"
