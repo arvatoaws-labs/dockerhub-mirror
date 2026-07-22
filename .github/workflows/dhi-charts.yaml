@@ -37,6 +37,13 @@ jobs:
         src-registry: dhi.io
         src-repo: flux-chart
         dst-repo: arvatoaws-labs/flux-chart
+    - name: Mirror oauth2-proxy chart
+      uses: arvatoaws-labs/dockerhub-mirror@main
+      with:
+        config: config/chart-hardened.yaml
+        src-registry: dhi.io
+        src-repo: oauth2-proxy-chart
+        dst-repo: arvatoaws-labs/oauth2-proxy-chart
     - name: Mirror cert-manager chart
       uses: arvatoaws-labs/dockerhub-mirror@main
       with:
