@@ -77,9 +77,9 @@ runs:
       cat $CONFIG
       echo "::endgroup"
 
-      echo "::group::Checking"
-      ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL check
-      echo "::endgroup"
+      # echo "::group::Checking"
+      # ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL check
+      # echo "::endgroup"
 
       echo "::group::Syncing"
       ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL once
