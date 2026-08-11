@@ -30,6 +30,14 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Mirror bun
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi-dev.yaml
+        src-registry: dhi.io
+        src-repo: bun
+        dst-repo: arvatoaws-labs/bun-hardened
     - name: Mirror aws-node-termination-handler
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
