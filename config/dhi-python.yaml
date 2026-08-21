@@ -1,0 +1,38 @@
+defaults:
+  ratelimit:
+    min: 20
+    retry: 1m
+  parallel: 6
+sync:
+- source: "{{env \"SRC_REGISTRY\"}}/{{env \"SRC_REPO\"}}"
+  target: "{{env \"DST_REGISTRY\"}}/{{env \"DST_REPO\"}}"
+  type: repository
+  tags:
+    allow:
+    - "\\d+"
+    - "\\d+.\\d+"
+    - "\\d+.\\d+.\\d+"
+    - "\\d+-alpine"
+    - "\\d+.\\d+-alpine"
+    - "\\d+.\\d+.\\d+-alpine"
+    - "\\d+-alpine\\d+"
+    - "\\d+.\\d+-alpine\\d+"
+    - "\\d+.\\d+.\\d+-alpine\\d+"
+    - "\\d+-alpine\\d+.\\d+"
+    - "\\d+.\\d+-alpine\\d+.\\d+"
+    - "\\d+.\\d+.\\d+-alpine\\d+.\\d+"
+    # - "\\d+-debian" # causes incorrect tag expansion
+    # - "\\d+.\\d+-debian"
+    # - "\\d+.\\d+.\\d+-debian"
+    - "\\d+-debian\\d+"
+    - "\\d+.\\d+-debian\\d+"
+    - "\\d+.\\d+.\\d+-debian\\d+"
+    - "\\d+-debian\\d+.\\d+"
+    - "\\d+.\\d+-debian\\d+.\\d+"
+    - "\\d+.\\d+.\\d+-debian\\d+.\\d+"
+    deny:
+    - ".*-dev$"
+    - ".*-fips$"
+    - "^latest$"
+    - ".*3.9.23.*"
+  forceRecursive: true

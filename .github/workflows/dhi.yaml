@@ -436,7 +436,7 @@ jobs:
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
-        config: config/dhi.yaml
+        config: config/dhi-python.yaml
         src-registry: dhi.io
         src-repo: python
         dst-repo: arvatoaws-labs/python-hardened
