@@ -12,6 +12,4 @@ sync:
     - "latest"
     - "lts"
     - "alpine.*"
-    - "22-alpine.*"
-    - "20-alpine.*"
-    - "18-alpine.*"
+    - "\\d+-alpine.*"
