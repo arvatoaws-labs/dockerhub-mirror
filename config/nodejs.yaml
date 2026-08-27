@@ -11,5 +11,5 @@ sync:
     allow:
     - "latest"
     - "lts"
-    - "alpine.*"
-    - "\\d+-alpine.*"
+    - "alpine"
+    - "\\d+-alpine"
