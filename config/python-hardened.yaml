@@ -15,3 +15,5 @@ sync:
     - ".*windows.*"
     - ".*nanonserver.*"
     - ".*rc.*"
+    # EOL versions are ELS-only on dhi.io and need a separate entitlement
+    - "3\\.[0-9]$"
