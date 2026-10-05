@@ -21,3 +21,5 @@ sync:
     - ".*rc.*"
     - ".*alpha.*"
     - ".*beta.*"
+    # ancient tags use schema1 manifests, which ghcr.io rejects
+    - "^1\\.[0-9](\\.\\d+)?(-.*)?$"
