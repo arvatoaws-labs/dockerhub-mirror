@@ -91,11 +91,15 @@ runs:
         local max_attempts=5
 
         for attempt in $(seq 1 "$max_attempts"); do
-          echo "Sync attempt $attempt/$max_attempts"
-
+          echo "::group::Syncing (attempt $attempt/$max_attempts)"
+          
           if ./regsync-linux-arm64 -c "$CONFIG" -v "$LOGLEVEL" once; then
+            echo "Sync successful"
+            echo "::endgroup"
             return 0
           fi
+          
+          echo "::endgroup"
 
           if [ "$attempt" -lt "$max_attempts" ]; then
             sleep $((5 * 2 ** (attempt - 1)))
@@ -105,6 +109,8 @@ runs:
         echo "Sync failed after $max_attempts attempts"
         return 1
       }
+
+      retry_sync
 
       echo "::group::Tagging"
       existing_tags=$(./regctl-linux-arm64 tag ls ${DST_REGISTRY}/${DST_REPO})
