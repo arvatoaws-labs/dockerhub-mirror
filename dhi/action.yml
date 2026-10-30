@@ -81,9 +81,30 @@ runs:
       # ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL check
       # echo "::endgroup"
 
-      echo "::group::Syncing"
-      ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL once
-      echo "::endgroup"
+      # echo "::group::Syncing"
+      # ./regsync-linux-arm64 -c $CONFIG -v $LOGLEVEL once
+      # echo "::endgroup"
+      
+      
+      # Retry sync function with exponential backoff in case of dhi instability
+      retry_sync() {
+        local max_attempts=5
+
+        for attempt in $(seq 1 "$max_attempts"); do
+          echo "Sync attempt $attempt/$max_attempts"
+
+          if ./regsync-linux-arm64 -c "$CONFIG" -v "$LOGLEVEL" once; then
+            return 0
+          fi
+
+          if [ "$attempt" -lt "$max_attempts" ]; then
+            sleep $((5 * 2 ** (attempt - 1)))
+          fi
+        done
+
+        echo "Sync failed after $max_attempts attempts"
+        return 1
+      }
 
       echo "::group::Tagging"
       existing_tags=$(./regctl-linux-arm64 tag ls ${DST_REGISTRY}/${DST_REPO})
