@@ -596,3 +596,11 @@ jobs:
         src-registry: dhi.io
         src-repo: fluxcd-image-reflector-controller
         dst-repo: arvatoaws-labs/fluxcd-image-reflector-controller-hardened
+    - name: Mirror mysqld-exporter
+      if: always()
+      uses: arvatoaws-labs/dockerhub-mirror/dhi@main
+      with:
+        config: config/dhi.yaml
+        src-registry: dhi.io
+        src-repo: mysqld-exporter
+        dst-repo: arvatoaws-labs/mysql-exporter-hardened
