@@ -420,7 +420,7 @@ jobs:
       if: always()
       uses: arvatoaws-labs/dockerhub-mirror/dhi@main
       with:
-        config: config/dhi.yaml
+        config: config/nodejs-hardened.yaml
         src-registry: dhi.io
         src-repo: node
         dst-repo: arvatoaws-labs/node-hardened
